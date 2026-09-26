@@ -26,6 +26,10 @@ In the cloud environment settings: allow `api.apify.com`, `www.instagram.com`,
 access), and add an `APIFY_TOKEN` environment variable. Then start a new session
 and follow the [extraction runbook](documentation/extraction-runbook.md).
 
+Alternatively, add `APIFY_TOKEN` as a GitHub repository secret. The
+`Extract Instagram archive` workflow then pulls the archive on GitHub's machines
+and commits it to the branch; see the runbook's step 0b.
+
 ## Pipeline
 
 ```bash
