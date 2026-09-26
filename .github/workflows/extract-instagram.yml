@@ -1,9 +1,13 @@
-# Pull the @southafrica.property archive with Apify and commit it to the branch.
+# Pull the @southafrica.property archive with Apify, build the content and the
+# website from it, and commit everything to the branch the run started from.
 #
 # Runs on GitHub's machines, which can reach Apify and Instagram's image CDN.
 # Needs the repository secret APIFY_TOKEN (Settings → Secrets and variables →
 # Actions). Every run starts with a dry run that prints the actors' input keys
 # and pricing; the paid extraction only runs when the request confirms the cost.
+# The built site lands in docs/ on that branch. Run from main, that publishes
+# it straight away; run from any other branch, it goes live when that branch is
+# merged into main, which leaves room to review the real content first.
 #
 # Triggers
 #   - "Run workflow" on the Actions tab (once this file is on main)
@@ -36,7 +40,7 @@ concurrency:
 jobs:
   extract:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     env:
       APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
       APIFY_CLI_DISABLE_TELEMETRY: '1'
@@ -101,12 +105,18 @@ jobs:
           npm run extract:dedupe
           node scripts/research/archive-analysis.mjs
 
+      - name: Build content and website
+        if: steps.req.outputs.confirm == 'true'
+        run: |
+          npm run content:build
+          node site/build.mjs
+
       - name: Commit results
         if: steps.req.outputs.confirm == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data media documentation/research
+          git add data media docs documentation/research
           if git diff --cached --quiet; then echo "Nothing new to commit."; exit 0; fi
           git commit -m "Add Instagram archive extraction ($(date -u +%Y-%m-%dT%H:%MZ))"
           git pull --rebase origin "$GITHUB_REF_NAME"

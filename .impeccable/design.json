@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T15:56:45.784Z",
+  "title": "Design System: South Africa Property",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(100.0% 0.000 0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0)",
+          "oklch(26.4% 0.000 0)",
+          "oklch(37.9% 0.000 0)",
+          "oklch(49.3% 0.000 0)",
+          "oklch(60.7% 0.000 0)",
+          "oklch(72.1% 0.000 0)",
+          "oklch(83.6% 0.000 0)",
+          "oklch(95.0% 0.000 0)"
+        ]
+      },
+      "fynbos-stone": {
+        "role": "neutral",
+        "displayName": "Fynbos Stone",
+        "canonical": "oklch(96.3% 0.004 121.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 121.6)",
+          "oklch(26.4% 0.004 121.6)",
+          "oklch(37.9% 0.004 121.6)",
+          "oklch(49.3% 0.004 121.6)",
+          "oklch(60.7% 0.004 121.6)",
+          "oklch(72.1% 0.004 121.6)",
+          "oklch(83.6% 0.004 121.6)",
+          "oklch(95.0% 0.004 121.6)"
+        ]
+      },
+      "stone-deep": {
+        "role": "neutral",
+        "displayName": "Stone, deep",
+        "canonical": "oklch(92.8% 0.007 124.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 124.5)",
+          "oklch(26.4% 0.007 124.5)",
+          "oklch(37.9% 0.007 124.5)",
+          "oklch(49.3% 0.007 124.5)",
+          "oklch(60.7% 0.007 124.5)",
+          "oklch(72.1% 0.007 124.5)",
+          "oklch(83.6% 0.007 124.5)",
+          "oklch(95.0% 0.007 124.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(22.2% 0.006 156.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 156.7)",
+          "oklch(26.4% 0.006 156.7)",
+          "oklch(37.9% 0.006 156.7)",
+          "oklch(49.3% 0.006 156.7)",
+          "oklch(60.7% 0.006 156.7)",
+          "oklch(72.1% 0.006 156.7)",
+          "oklch(83.6% 0.006 156.7)",
+          "oklch(95.0% 0.006 156.7)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink, soft",
+        "canonical": "oklch(35.8% 0.010 151.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.010 151.6)",
+          "oklch(26.4% 0.010 151.6)",
+          "oklch(37.9% 0.010 151.6)",
+          "oklch(49.3% 0.010 151.6)",
+          "oklch(60.7% 0.010 151.6)",
+          "oklch(72.1% 0.010 151.6)",
+          "oklch(83.6% 0.010 151.6)",
+          "oklch(95.0% 0.010 151.6)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "oklch(48.6% 0.011 150.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.011 150.5)",
+          "oklch(26.4% 0.011 150.5)",
+          "oklch(37.9% 0.011 150.5)",
+          "oklch(49.3% 0.011 150.5)",
+          "oklch(60.7% 0.011 150.5)",
+          "oklch(72.1% 0.011 150.5)",
+          "oklch(83.6% 0.011 150.5)",
+          "oklch(95.0% 0.011 150.5)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "oklch(88.1% 0.009 128.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 128.6)",
+          "oklch(26.4% 0.009 128.6)",
+          "oklch(37.9% 0.009 128.6)",
+          "oklch(49.3% 0.009 128.6)",
+          "oklch(60.7% 0.009 128.6)",
+          "oklch(72.1% 0.009 128.6)",
+          "oklch(83.6% 0.009 128.6)",
+          "oklch(95.0% 0.009 128.6)"
+        ]
+      },
+      "fynbos-green": {
+        "role": "primary",
+        "displayName": "Fynbos Green",
+        "canonical": "oklch(38.5% 0.043 160.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.039 160.1)",
+          "oklch(26.4% 0.043 160.1)",
+          "oklch(37.9% 0.043 160.1)",
+          "oklch(49.3% 0.043 160.1)",
+          "oklch(60.7% 0.043 160.1)",
+          "oklch(72.1% 0.043 160.1)",
+          "oklch(83.6% 0.043 160.1)",
+          "oklch(95.0% 0.043 160.1)"
+        ]
+      },
+      "fynbos-green-soft": {
+        "role": "primary",
+        "displayName": "Fynbos Green, soft",
+        "canonical": "oklch(92.0% 0.012 153.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.012 153.7)",
+          "oklch(26.4% 0.012 153.7)",
+          "oklch(37.9% 0.012 153.7)",
+          "oklch(49.3% 0.012 153.7)",
+          "oklch(60.7% 0.012 153.7)",
+          "oklch(72.1% 0.012 153.7)",
+          "oklch(83.6% 0.012 153.7)",
+          "oklch(95.0% 0.012 153.7)"
+        ]
+      },
+      "ochre": {
+        "role": "secondary",
+        "displayName": "Ochre",
+        "canonical": "oklch(47.1% 0.099 76.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.039 76.3)",
+          "oklch(26.4% 0.057 76.3)",
+          "oklch(37.9% 0.079 76.3)",
+          "oklch(49.3% 0.099 76.3)",
+          "oklch(60.7% 0.099 76.3)",
+          "oklch(72.1% 0.099 76.3)",
+          "oklch(83.6% 0.099 76.3)",
+          "oklch(95.0% 0.041 76.3)"
+        ]
+      },
+      "oxide": {
+        "role": "secondary",
+        "displayName": "Oxide",
+        "canonical": "oklch(41.7% 0.105 31.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.069 31.3)",
+          "oklch(26.4% 0.105 31.3)",
+          "oklch(37.9% 0.105 31.3)",
+          "oklch(49.3% 0.105 31.3)",
+          "oklch(60.7% 0.105 31.3)",
+          "oklch(72.1% 0.105 31.3)",
+          "oklch(83.6% 0.091 31.3)",
+          "oklch(95.0% 0.025 31.3)"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "oklch(19.2% 0.006 156.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 156.6)",
+          "oklch(26.4% 0.006 156.6)",
+          "oklch(37.9% 0.006 156.6)",
+          "oklch(49.3% 0.006 156.6)",
+          "oklch(60.7% 0.006 156.6)",
+          "oklch(72.1% 0.006 156.6)",
+          "oklch(83.6% 0.006 156.6)",
+          "oklch(95.0% 0.006 156.6)"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night ink",
+        "canonical": "oklch(95.2% 0.006 128.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 128.5)",
+          "oklch(26.4% 0.006 128.5)",
+          "oklch(37.9% 0.006 128.5)",
+          "oklch(49.3% 0.006 128.5)",
+          "oklch(60.7% 0.006 128.5)",
+          "oklch(72.1% 0.006 128.5)",
+          "oklch(83.6% 0.006 128.5)",
+          "oklch(95.0% 0.006 128.5)"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Night muted",
+        "canonical": "oklch(75.0% 0.012 149.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.012 149.8)",
+          "oklch(26.4% 0.012 149.8)",
+          "oklch(37.9% 0.012 149.8)",
+          "oklch(49.3% 0.012 149.8)",
+          "oklch(60.7% 0.012 149.8)",
+          "oklch(72.1% 0.012 149.8)",
+          "oklch(83.6% 0.012 149.8)",
+          "oklch(95.0% 0.012 149.8)"
+        ]
+      },
+      "sale-on-night": {
+        "role": "secondary",
+        "displayName": "For sale, on night",
+        "canonical": "oklch(82.9% 0.058 156.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.040 156.7)",
+          "oklch(26.4% 0.058 156.7)",
+          "oklch(37.9% 0.058 156.7)",
+          "oklch(49.3% 0.058 156.7)",
+          "oklch(60.7% 0.058 156.7)",
+          "oklch(72.1% 0.058 156.7)",
+          "oklch(83.6% 0.058 156.7)",
+          "oklch(95.0% 0.058 156.7)"
+        ]
+      },
+      "offer-on-night": {
+        "role": "secondary",
+        "displayName": "Under offer, on night",
+        "canonical": "oklch(84.3% 0.099 85.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.037 85.4)",
+          "oklch(26.4% 0.055 85.4)",
+          "oklch(37.9% 0.077 85.4)",
+          "oklch(49.3% 0.099 85.4)",
+          "oklch(60.7% 0.099 85.4)",
+          "oklch(72.1% 0.099 85.4)",
+          "oklch(83.6% 0.099 85.4)",
+          "oklch(95.0% 0.053 85.4)"
+        ]
+      },
+      "sold-on-night": {
+        "role": "secondary",
+        "displayName": "Sold, on night",
+        "canonical": "oklch(77.8% 0.081 31.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.069 31.4)",
+          "oklch(26.4% 0.081 31.4)",
+          "oklch(37.9% 0.081 31.4)",
+          "oklch(49.3% 0.081 31.4)",
+          "oklch(60.7% 0.081 31.4)",
+          "oklch(72.1% 0.081 31.4)",
+          "oklch(83.6% 0.081 31.4)",
+          "oklch(95.0% 0.025 31.4)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The cover title only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles, including the residence name."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Section titles on the home page, related residences and the enquiry band."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Editorial feature names, folio headings, province names."
+      },
+      "title-sm": {
+        "displayName": "Title, small",
+        "purpose": "Residence cards, register rows, places module, city names."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "The home page's bio statement."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Page intros."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, capped at 68ch."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Facts, particulars, credits, footer."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Source notes, run credit, full status lines."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Place lines, compact statuses, particulars caption: tracked capitals."
+      },
+      "label-action": {
+        "displayName": "Action label",
+        "purpose": "Navigation, buttons, arrow links."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Residence head and particulars."
+      },
+      "price-sm": {
+        "displayName": "Price, small",
+        "purpose": "Editorial features and register rows."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing curve for every transition and animation."
+      },
+      {
+        "name": "state",
+        "value": "160–220ms",
+        "purpose": "Colour, underline and arrow changes on hover and focus."
+      },
+      {
+        "name": "image-hover",
+        "value": "900ms",
+        "purpose": "Photograph scale on hover (102.5–103%)."
+      },
+      {
+        "name": "lightbox-in",
+        "value": "220ms opacity",
+        "purpose": "Lightbox fade in."
+      },
+      {
+        "name": "cover-settle",
+        "value": "1800ms scale 1.045 → 1",
+        "purpose": "The single authored motion moment on the home cover. Off under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-phone",
+        "value": "21.5em",
+        "note": "Menu label visually hidden below this width."
+      },
+      {
+        "name": "phone",
+        "value": "25em",
+        "note": "Wordmark tracking tightens to 0.14em below this width."
+      },
+      {
+        "name": "tablet",
+        "value": "48em",
+        "note": "Below: Menu sheet, cover caption below the photograph, one-column results, filter sheet."
+      },
+      {
+        "name": "desktop",
+        "value": "64em",
+        "note": "Below: features, statement, particulars, folio and Places stack; results in two columns."
+      }
+    ],
+    "notes": [
+      "The system is flat: no shadow tokens. The one box-shadow in the build is a 1px inset line drawing the hollow status square."
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink rectangle for the main action; turns fynbos green on hover.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Message on Instagram</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; min-height: 3rem; padding: 0.85rem 1.4rem; border: 1px solid var(--ink, #191c1a); border-radius: 0; background: var(--ink, #191c1a); color: var(--paper, #ffffff); font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.8125rem; font-weight: 600; font-stretch: 112%; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { background: var(--accent, #2f4b3c); border-color: var(--accent, #2f4b3c); } .ds-btn:focus-visible { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Outlined secondary action; fills with ink on hover.",
+      "html": "<button class=\"ds-btn-line\" type=\"button\">View all 8 photographs</button>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; min-height: 3rem; padding: 0.85rem 1.4rem; border: 1px solid var(--ink, #191c1a); border-radius: 0; background: transparent; color: var(--ink, #191c1a); font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.8125rem; font-weight: 600; font-stretch: 112%; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), color 180ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-line:hover { background: var(--ink, #191c1a); color: var(--paper, #ffffff); } .ds-btn-line:focus-visible { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "custom",
+      "refersTo": "link-arrow",
+      "description": "The site's main call to action; the arrow steps forward on hover.",
+      "html": "<a class=\"ds-link-arrow\" href=\"#\"><span>View the residence</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-link-arrow { display: inline-flex; align-items: center; gap: 0.5rem; padding-block: 0.5rem; color: var(--ink, #191c1a); font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.8125rem; font-weight: 600; font-stretch: 112%; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; } .ds-link-arrow svg { transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-link-arrow:hover { color: var(--accent, #2f4b3c); } .ds-link-arrow:hover svg { transform: translateX(0.25em); } .ds-link-arrow:focus-visible { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Status Label",
+      "kind": "chip",
+      "refersTo": "status-sale",
+      "description": "Dated status: the full sentence-case line and the compact tracked label, each led by a tone square.",
+      "html": "<p class=\"ds-status ds-status--sale\">For sale · as of 18 September 2026</p><p class=\"ds-status ds-status--compact ds-status--sale\">For sale · 21 Sep 2026</p><p class=\"ds-status ds-status--compact ds-status--offer\">Under offer · 5 Sep 2026</p><p class=\"ds-status ds-status--compact ds-status--quiet\">Featured Aug 2026</p>",
+      "css": ".ds-status { display: flex; align-items: baseline; gap: 0.55em; margin: 0 0 0.5rem; font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em; } .ds-status::before { content: \"\"; flex: none; width: 0.55em; height: 0.55em; background: currentColor; } .ds-status--compact { font-size: 0.75rem; font-stretch: 112%; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; } .ds-status--sale { color: var(--accent, #2f4b3c); } .ds-status--offer { color: var(--offer, #7a5200); } .ds-status--quiet { color: var(--muted, #5b615c); } .ds-status--quiet::before { background: transparent; box-shadow: inset 0 0 0 1px currentColor; }"
+    },
+    {
+      "name": "Residence Card",
+      "kind": "card",
+      "refersTo": "residence-card-title",
+      "description": "Listing card: 4:5 photograph, Caslon name, place, facts, and a foot with compact status and short price.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card__media\"></div><h3 class=\"ds-card__title\">Umhlanga penthouse</h3><p class=\"ds-card__place\">Umhlanga, Durban, KwaZulu-Natal</p><ul class=\"ds-card__facts\"><li>3 bedrooms</li><li>3 bathrooms</li></ul><div class=\"ds-card__foot\"><span class=\"ds-card__status\">For sale · 21 Sep 2026</span><span class=\"ds-card__price\">R 18.5m</span></div></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 0.5rem; width: 18rem; color: var(--ink, #191c1a); text-decoration: none; } .ds-card__media { aspect-ratio: 4 / 5; margin-bottom: 0.5rem; background: linear-gradient(180deg, #b9c9d3 0 45%, #7d8563 45% 75%, #b8b1a3 75%); } .ds-card__title { margin: 0; font-family: \"Libre Caslon Display\", Georgia, \"Times New Roman\", serif; font-weight: 400; font-size: 1.5rem; line-height: 1.12; transition: color 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-card:hover .ds-card__title { color: var(--accent, #2f4b3c); } .ds-card__place { margin: 0; color: var(--muted, #5b615c); font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.75rem; font-weight: 500; font-stretch: 112%; letter-spacing: 0.12em; text-transform: uppercase; } .ds-card__facts { display: flex; gap: 0.1rem 1.1rem; margin: 0; padding: 0; list-style: none; color: var(--ink-2, #393e3a); font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.9375rem; } .ds-card__foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 0.25rem; font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; } .ds-card__status { color: var(--accent, #2f4b3c); font-size: 0.75rem; font-weight: 500; font-stretch: 112%; letter-spacing: 0.12em; text-transform: uppercase; } .ds-card__price { font-size: 0.9375rem; font-weight: 600; font-variant-numeric: lining-nums tabular-nums; } .ds-card:focus-visible { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Select",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Square select with a small label above; hairline border that turns ink on hover.",
+      "html": "<label class=\"ds-select\"><span>Province</span><select><option>All provinces</option><option>Western Cape (8)</option><option>Gauteng (2)</option></select></label>",
+      "css": ".ds-select { display: inline-grid; gap: 0.15rem; font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; } .ds-select span { color: var(--muted, #5b615c); font-size: 0.75rem; font-weight: 500; font-stretch: 112%; letter-spacing: 0.12em; text-transform: uppercase; } .ds-select select { appearance: none; min-height: 2.75rem; min-width: 9rem; padding: 0 2.25rem 0 0.75rem; border: 1px solid var(--rule, #d6d9d3); border-radius: 0; background: var(--paper, #ffffff) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23191c1a' stroke-width='2' stroke-linecap='square'%3E%3Cpath d='M5 9l7 7 7-7'/%3E%3C/svg%3E\") no-repeat right 0.8rem center; color: var(--ink, #191c1a); font: inherit; font-size: 0.9375rem; } .ds-select select:hover { border-color: var(--ink, #191c1a); } .ds-select select:focus-visible { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Status Filter",
+      "kind": "chip",
+      "refersTo": "status-sale",
+      "description": "Segmented status choice with counts; the selected option is ink and underlined.",
+      "html": "<fieldset class=\"ds-seg\"><legend>Status</legend><label><input type=\"radio\" name=\"ds-st\" checked><span>All</span></label><label><input type=\"radio\" name=\"ds-st\"><span>For sale (3)</span></label><label><input type=\"radio\" name=\"ds-st\"><span>Under offer (1)</span></label><label><input type=\"radio\" name=\"ds-st\"><span>Featured (4)</span></label></fieldset>",
+      "css": ".ds-seg { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; min-inline-size: 0; margin: 0; padding: 0; border: 0; font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; } .ds-seg legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } .ds-seg label { position: relative; display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--muted, #5b615c); font-size: 0.9375rem; cursor: pointer; } .ds-seg input { position: absolute; inset: 0; opacity: 0; cursor: pointer; } .ds-seg input:checked + span { color: var(--ink, #191c1a); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.4em; } .ds-seg label:hover span { color: var(--ink, #191c1a); } .ds-seg input:focus-visible + span { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Particulars Table",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The residence particulars: muted labels, right-aligned tabular values, hairline rows.",
+      "html": "<table class=\"ds-spec\"><caption>Particulars</caption><tbody><tr><th scope=\"row\">Price</th><td>R 42 500 000</td></tr><tr><th scope=\"row\">Status</th><td>For sale · as of 18 September 2026</td></tr><tr><th scope=\"row\">Bedrooms</th><td>5</td></tr><tr><th scope=\"row\">Erf size</th><td>1 012 m²</td></tr></tbody></table>",
+      "css": ".ds-spec { width: 22rem; border-collapse: collapse; font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.9375rem; font-variant-numeric: lining-nums tabular-nums; } .ds-spec caption { padding-bottom: 0.75rem; color: var(--muted, #5b615c); font-size: 0.75rem; font-weight: 500; font-stretch: 112%; letter-spacing: 0.12em; text-align: left; text-transform: uppercase; } .ds-spec th, .ds-spec td { padding: 0.7rem 0; border-top: 1px solid var(--rule, #d6d9d3); vertical-align: baseline; } .ds-spec tr:last-child th, .ds-spec tr:last-child td { border-bottom: 1px solid var(--rule, #d6d9d3); } .ds-spec th { padding-right: 1rem; color: var(--muted, #5b615c); font-weight: 400; text-align: left; } .ds-spec td { color: var(--ink, #191c1a); text-align: right; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Caslon wordmark left, action-label links right; the current page is underlined.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#\">South Africa Property</a><nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#\" aria-current=\"page\">Residences</a><a href=\"#\">Places</a><a href=\"#\">About</a><a href=\"#\">Enquire</a></nav></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 4rem; padding-inline: 1.5rem; background: var(--paper, #ffffff); border-bottom: 1px solid var(--rule, #d6d9d3); } .ds-wordmark { color: var(--ink, #191c1a); font-family: \"Libre Caslon Display\", Georgia, \"Times New Roman\", serif; font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; white-space: nowrap; } .ds-nav { display: flex; gap: 2rem; } .ds-nav a { padding-block: 0.75rem; color: var(--ink, #191c1a); font-family: \"Archivo\", \"Helvetica Neue\", Helvetica, sans-serif; font-size: 0.8125rem; font-weight: 600; font-stretch: 112%; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 calc(100% - 0.55rem); background-repeat: no-repeat; transition: background-size 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { background-size: 100% 1px; } .ds-nav a:focus-visible, .ds-wordmark:focus-visible { outline: 2px solid var(--accent, #2f4b3c); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Modern South African Residence Index",
+    "overview": "The site is a classic editorial showcase: each home is presented like a feature in a residential architecture magazine and filed in an index organised by South African place. The owner chose this register and named Sotheby's International Realty as the benchmark for craft, not for palette or typefaces. The photographs are the content. They run edge to edge on the cover and on each residence's lead image, and everything else steps back so the architecture and the setting carry the page.\n\nThe furniture is quiet and exact. White and pale fynbos-stone grounds, near-black ink and one deep fynbos green. Libre Caslon Display sets the names of homes, headlines and the wordmark. Archivo, using its width axis, sets places, prices, specifications, navigation and labels. Corners are square, there are no shadows, and hairlines appear only where data needs them. Density changes by purpose. The home and residence pages breathe like a magazine spread; the Residence Index and the particulars table are tight, ruled and tabular, like a printed catalogue.\n\nThe system is built for honesty as much as looks. Every status carries a date, every credit repeats only what the source post says, and a missing fact is simply absent. The site never shows a placeholder value. The visual rejections are the owner's: no centred hero with two buttons, no search box over the hero, no rounded card grids or pills, no glassmorphism, gradient mesh, navy-and-gold, black-and-gold or beige template.",
+    "keyCharacteristics": [
+      "Photography first, full bleed, never retouched, cropped only inside set frames.",
+      "Caslon names over tracked Archivo metadata; prices in tabular figures.",
+      "White and fynbos stone grounds, one green accent, night grounds only for the cover caption on phones, the enquiry band and the lightbox.",
+      "Square corners, flat surfaces, hairlines for data only.",
+      "Dated status in two assigned forms, with tone squares that never carry meaning alone.",
+      "One authored motion moment (the cover settling), all motion removed under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The One Green Rule",
+        "body": "Fynbos green marks availability and interaction, nothing else: the for-sale tone, hover, focus, caret and selection. It never fills a section, a card or a decorative shape.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dated Tone Rule",
+        "body": "A status colour always sits beside a dated text label. Colour alone never tells a visitor whether a home is for sale.",
+        "section": "colors"
+      },
+      {
+        "name": "The Night Band Rule",
+        "body": "Night grounds are reserved for the enquiry band, the lightbox and the cover caption on phones. The site is never a dark template.",
+        "section": "colors"
+      },
+      {
+        "name": "The Name Leads Rule",
+        "body": "A home's Caslon name always outranks its price. Prices are full size only in the residence head; in features and lists they drop to `price-sm`, and on cards to small semibold.",
+        "section": "typography"
+      },
+      {
+        "name": "The Short Caps Rule",
+        "body": "Tracked capitals are for short labels only: places, navigation, buttons and compact statuses, under about 40 characters. Full status lines and all running text stay in sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Prices, counts, dates, areas and the lightbox counter use lining tabular figures, with South African thin grouping (R 42 500 000).",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Page Rule",
+        "body": "Nothing floats. Sticky elements (the header, the filter bar and the particulars) separate from the page with a hairline or with space, never with a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** set every home's name in Libre Caslon Display, and every fact (place, price, specification, date) in Archivo.",
+      "**Do** date every status and keep the two assigned status forms: the full sentence-case line in running particulars, and the compact tracked label in cards and lists.",
+      "**Do** credit people exactly as the source post does, for example \"Architecture\", \"Photography\" or \"Represented by\", and link each to their Instagram profile.",
+      "**Do** use the account's own photography, as published, full bleed where the layout calls for it, with its credit and a link to its post.",
+      "**Do** keep hairlines to data: tables, ledgers and ruled lists, plus the edge of the sticky filter bar.",
+      "**Do** leave a missing fact out. No dash, no \"N/A\" and no placeholder appear in published pages.",
+      "**Do** keep prices in lining tabular figures with South African grouping, and one step below the name except in the residence head.",
+      "**Do** keep square corners and flat surfaces on every component."
+    ],
+    "donts": [
+      "**Don't** use Inter, Roboto, Arial, Open Sans, Poppins, Montserrat, DM Sans, Space Grotesk or a generic system sans.",
+      "**Don't** build a centred hero with a subtitle and two buttons, a left-text, right-image hero, or a search box over the hero.",
+      "**Don't** use rounded card grids, pills, glassmorphism, gradient mesh, decorative gold lines, navy-and-gold, black-and-gold or a beige template.",
+      "**Don't** put a kicker or eyebrow above a heading, number sections decoratively, or add shadows.",
+      "**Don't** mix stock or generated imagery with real residences, retouch or de-watermark a photograph, or claim ownership of one.",
+      "**Don't** show \"For sale\" without a sale post from the last 30 days that names the agent or agency.",
+      "**Don't** show an email address or WhatsApp number until the owner supplies it.",
+      "**Don't** write \"Luxury redefined\", \"Elevated living\", \"Find your dream home\", \"Where luxury meets lifestyle\", \"unparalleled luxury\", \"timeless elegance\", \"prestigious living\", \"elevated lifestyle\" or \"where sophistication meets comfort\"."
+    ]
+  }
+}

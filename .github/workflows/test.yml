@@ -1,0 +1,25 @@
+# Unit tests and the end-to-end pipeline test (synthetic fixture through every
+# stage and the real site build). No network access or secrets needed.
+
+name: Tests
+
+on:
+  push:
+    branches: ['main', 'claude/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
