@@ -1,9 +1,9 @@
-# South Africa Property — proposal website
+# South Africa Property — website
 
-A proposal website for [@southafrica.property](https://www.instagram.com/southafrica.property/),
-to be built entirely from the account's own Instagram archive: its residences,
-places, captions, credits and photography. It is not the account's official
-website and will ship with `noindex, nofollow`.
+The official website of [@southafrica.property](https://www.instagram.com/southafrica.property/),
+built from the account's own Instagram archive: its residences, places, captions,
+credits and photography. Published with GitHub Pages at
+<https://aphiwemadlala.github.io/South-Africa-Property-/>.
 
 ## Status
 
@@ -14,7 +14,7 @@ website and will ship with `noindex, nofollow`.
 | 3 · Content model | Rules written ([content-model.md](documentation/content-model.md)); data files wait for the archive |
 | 4–7 · Direction, type, DESIGN.md | Not started — they derive from the archive's imagery and captions |
 | 8–16 · Build, critique, QA | Not started |
-| Deployment | GitHub Pages from `main` → `/docs`; a holding page stands in until the real site is built ([deployment.md](documentation/deployment.md)) |
+| Deployment | Live on GitHub Pages from `main` → `/docs`; a holding page stands in until the full site is built ([deployment.md](documentation/deployment.md)) |
 
 No listing, price, image, person or place has been entered by hand, and none
 will be. The site is generated from extracted data.

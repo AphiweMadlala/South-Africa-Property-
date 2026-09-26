@@ -96,7 +96,7 @@ async function main() {
           rights: {
             publishedBy: `@${username}`,
             creditedPhotographers: photographers,
-            note: 'Reproduced from a public Instagram post for a non-public proposal. Copyright remains with the original photographer or owner.',
+            note: 'Published on Instagram by the account. Photography credit as stated in the source post; copyright remains with the photographer or owner.',
           },
         });
         done++;
