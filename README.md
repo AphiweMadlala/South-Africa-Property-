@@ -14,6 +14,7 @@ website and will ship with `noindex, nofollow`.
 | 3 · Content model | Rules written ([content-model.md](docs/content-model.md)); data files wait for the archive |
 | 4–7 · Direction, type, DESIGN.md | Not started — they derive from the archive's imagery and captions |
 | 8–16 · Build, critique, QA | Not started |
+| Deployment | Private claude.ai artifact, after build and QA ([deployment.md](docs/deployment.md)) |
 
 No listing, price, image, person or place has been entered by hand, and none
 will be. The site is generated from extracted data.

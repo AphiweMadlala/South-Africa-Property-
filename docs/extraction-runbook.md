@@ -86,7 +86,8 @@ re-extract rather than guessing.
   decision survives re-runs.
 - Spot-check 10 random posts against Instagram: caption, date, media count.
 
-Then continue with [`content-model.md`](content-model.md).
+Then continue with [`content-model.md`](content-model.md), design and build, and
+deploy as described in [`deployment.md`](deployment.md).
 
 ## Media storage
 
