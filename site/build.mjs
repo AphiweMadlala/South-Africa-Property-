@@ -14,6 +14,7 @@
 
 import { readFile, writeFile, mkdir, rm, cp, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { availableParallelism } from 'node:os';
 import path from 'node:path';
 import { createImagePipeline } from './lib/images.mjs';
 import {
@@ -32,6 +33,7 @@ const flag = (name, fallback) => (args.includes(name) ? args[args.indexOf(name) 
 const SAMPLE = args.includes('--sample');
 const OUT = path.resolve(ROOT, flag('--out', SAMPLE ? '.preview' : 'docs'));
 const DATA = path.resolve(ROOT, SAMPLE ? '.preview-data' : '.');
+const WIDTHS = [720, 1440, 2048];
 
 const readJson = async (file, fallback) => {
   try {
@@ -103,7 +105,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
   for (const p of properties) {
     const gallery = [];
     for (const g of p.gallery) {
-      const prepared = await pipeline.prepare({ id: g.id, src: path.join(DATA, g.file), dominant: g.dominant }, [720, 1440, 2048]);
+      const prepared = await pipeline.prepare({ id: g.id, src: path.join(DATA, g.file), dominant: g.dominant }, WIDTHS);
       const post = p.posts.find((x) => x.id === g.postId);
       gallery.push({
         prepared,
@@ -115,6 +117,8 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
     if (!gallery.length) continue;
     const f = p.facts;
     const v = (x) => x?.value ?? null;
+    // A low-confidence type is an inference, not something the post states.
+    const type = f.propertyType?.confidence === 'low' ? null : v(f.propertyType);
     const statusMeta = STATUS[p.status.status] ?? { label: p.status.status, tone: 'featured' };
     const factItems = [
       count(v(f.bedrooms), 'bedroom'),
@@ -127,7 +131,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
       ['Price', price(v(f.price))],
       ['Status', statusLine(p.status)],
       ['Location', placeLine(p.place)],
-      ['Type', v(f.propertyType) ? TYPE_LABEL[v(f.propertyType)] ?? null : null],
+      ['Type', type ? TYPE_LABEL[type] ?? null : null],
       ['Bedrooms', v(f.bedrooms) != null ? String(v(f.bedrooms)).replace('.5', '½') : null],
       ['Bathrooms', v(f.bathrooms) != null ? String(v(f.bathrooms)).replace('.5', '½') : null],
       ['Garages', v(f.garages)],
@@ -191,7 +195,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
         province: slug(p.place?.province ?? p.place?.country ?? ''),
         city: slug(p.place?.city ?? ''),
         area: slug(p.place?.estate ?? p.place?.suburb ?? ''),
-        type: v(f.propertyType) ?? '',
+        type: type ?? '',
         beds: v(f.bedrooms) ?? '',
         price: amount ?? '',
       },
@@ -327,6 +331,13 @@ async function main() {
   await mkdir(OUT, { recursive: true });
 
   const pipeline = createImagePipeline({ outDir: path.join(ROOT, '.cache'), mediaUrl: 'media' });
+  // Encode every gallery image first, a few at a time; buildModel then gets
+  // the finished derivatives from the pipeline's memo.
+  const jobs = properties.flatMap((p) => p.gallery.map((g) => () => pipeline.prepare({ id: g.id, src: path.join(DATA, g.file), dominant: g.dominant }, WIDTHS)));
+  const workers = Math.max(2, Math.min(6, Math.floor(availableParallelism() / 2)));
+  await Promise.all(Array.from({ length: workers }, async () => {
+    for (let job = jobs.shift(); job; job = jobs.shift()) await job();
+  }));
   const model = await buildModel({ properties, places, profile, config, pipeline });
   if (!model.residences.length) throw new Error('No residence has a usable photograph.');
 

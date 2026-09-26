@@ -488,7 +488,9 @@ const PROPERTY_TYPES = [
   ['beach-house', /\bbeach ?house\b/i],
   ['lodge', /\b(?:safari (?:home|lodge)|bush (?:home|house|villa)|private lodge)\b/i],
   ['vacant-land', /\b(?:vacant (?:land|plot|stand)|building (?:plot|stand)|plot for sale)\b/i],
-  ['house', /\b(?:house|home|residence|mansion)\b/i],
+  // "Home" and "residence" name any dwelling, so they are not evidence of a
+  // house; neither is an open house, show house or guest house.
+  ['house', /\b(?<!(?:open|show|guest|pool|boat|club|coach|green|ware|light|tree)[- ]?)(?:house|mansion)\b/i],
 ];
 
 function vocab(text, table) {
@@ -505,7 +507,7 @@ export function parseVocabulary(text) {
   for (const [key, re] of PROPERTY_TYPES) {
     const m = text.match(re);
     if (m) {
-      propertyType = { value: key, evidence: m[0], source: 'caption', confidence: key === 'house' ? 'low' : 'medium' };
+      propertyType = { value: key, evidence: m[0], source: 'caption', confidence: 'medium' };
       break;
     }
   }

@@ -94,6 +94,7 @@ async function main() {
         robots: document.querySelector('meta[name=robots]')?.content ?? null,
         h1: document.querySelectorAll('h1').length,
         lang: document.documentElement.lang,
+        photos: new Set([...document.querySelectorAll('[data-lightbox-open]')].map((e) => e.dataset.lightboxOpen)).size,
       };
     });
     const expect404 = rel === 'this-page-does-not-exist/';
@@ -122,7 +123,8 @@ async function main() {
     await page.close();
   }
   const ig = pages.flatMap((p) => p.external.map((l) => l.href)).filter((h) => /instagram\.com|ig\.me/.test(h));
-  record('Links', 'Instagram links well formed', ig.every((h) => /^https:\/\/(www\.instagram\.com\/[\w.]+\/(p\/[\w-]+\/)?|ig\.me\/m\/[\w.]+)$/.test(h)), [...new Set(ig)].slice(0, 4).join(', '));
+  const igBad = [...new Set(ig)].filter((h) => !/^https:\/\/(www\.instagram\.com\/((p|reel|tv)\/[\w-]+|[\w.]+)\/|ig\.me\/m\/[\w.]+)$/.test(h));
+  record('Links', 'Instagram links well formed', igBad.length === 0, igBad.length ? igBad.slice(0, 4).join(', ') : `${new Set(ig).size} distinct links`);
 
   // ------------------------------------------------------- HTML validity
   const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rules: { 'no-inline-style': 'off', 'long-title': 'off', 'no-trailing-whitespace': 'off', 'attribute-empty-style': 'off' } });
@@ -133,7 +135,10 @@ async function main() {
   }
 
   // ------------------------------------------------------ representative pages
-  const residenceRel = pages.find((p) => /^residences\/[^/]+\/$/.test(p.rel))?.rel;
+  // The residence with the most photographs exercises the lightbox fully.
+  const residenceRel = pages
+    .filter((p) => /^residences\/[^/]+\/$/.test(p.rel))
+    .sort((a, b) => b.photos - a.photos)[0]?.rel;
   const types = ['', 'residences/', residenceRel, 'places/', 'about/', 'enquire/'].filter((x) => x != null);
 
   // Overflow at every width.
@@ -281,14 +286,23 @@ async function main() {
     await page.click('[data-filter-open]');
     const open = await page.evaluate(() => document.querySelector('[data-filter-sheet]').open);
     const statuses = await page.$$eval('[data-filter-sheet] input[name=status]', (x) => x.map((i) => i.value).filter(Boolean));
-    if (statuses.length) await page.click(`[data-filter-sheet] input[name=status][value="${statuses[0]}"]`, { force: true });
+    const selects = await page.$$eval('[data-filter-sheet] select:not([name=sort])', (x) => x.map((s) => ({ name: s.name, value: [...s.options].find((o) => o.value && !o.disabled)?.value })).filter((s) => s.value));
+    let applied = null;
+    if (statuses.length) {
+      await page.click(`[data-filter-sheet] input[name=status][value="${statuses[0]}"]`, { force: true });
+      applied = `status=${statuses[0]}`;
+    } else if (selects.length) {
+      await page.selectOption(`[data-filter-sheet] select[name=${selects[0].name}]`, selects[0].value);
+      applied = `${selects[0].name}=${selects[0].value}`;
+    }
     const btn = await page.$eval('[data-result-count-short]', (e) => e.textContent);
     await page.click('.filter-sheet__foot [data-filter-sheet-close]');
     const closed = await page.evaluate(() => !document.querySelector('[data-filter-sheet]').open);
     const back = await page.evaluate(() => document.querySelector('[data-filter-controls]').closest('[data-filter-bar]') != null);
     const focus = await page.evaluate(() => document.activeElement?.matches('[data-filter-open]'));
     const active = await page.$eval('[data-filter-active]', (e) => e.textContent);
-    record('Filters', 'mobile filter sheet: filters apply, controls return, focus restores', open && closed && back && focus && /\(1\)/.test(active), `open=${open} button="${btn}" closed=${closed} controlsBack=${back} focus=${focus} badge=${active}`);
+    const badgeOk = applied ? /\(1\)/.test(active) : active === '';
+    record('Filters', 'mobile filter sheet: filters apply, controls return, focus restores', open && closed && back && focus && badgeOk, `open=${open} applied=${applied ?? 'none offered'} button="${btn}" closed=${closed} controlsBack=${back} focus=${focus} badge=${active}`);
     await ctx.close();
   }
 
@@ -302,16 +316,21 @@ async function main() {
     const idx = () => page.$eval('[data-lightbox-index]', (e) => Number(e.textContent));
     const open = await page.evaluate(() => document.querySelector('[data-lightbox]').open);
     const loaded = await page.waitForFunction(() => { const i = document.querySelector('[data-lightbox-picture] img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 5000 }).then(() => true, () => false);
-    await page.keyboard.press('ArrowRight');
-    const second = await idx();
-    await page.keyboard.press('End');
-    const last = await idx();
-    await page.keyboard.press('ArrowRight');
-    const wrapped = await idx();
-    await page.keyboard.press('ArrowLeft');
-    const wrappedBack = await idx();
-    await page.click('[data-lightbox-next]');
-    const nextBtn = await idx();
+    // Paging needs at least two photographs; a single-photo gallery has no controls.
+    let paging = null;
+    if (total > 1) {
+      await page.keyboard.press('ArrowRight');
+      const second = await idx();
+      await page.keyboard.press('End');
+      const last = await idx();
+      await page.keyboard.press('ArrowRight');
+      const wrapped = await idx();
+      await page.keyboard.press('ArrowLeft');
+      const wrappedBack = await idx();
+      await page.click('[data-lightbox-next]');
+      const nextBtn = await idx();
+      paging = { second, last, wrapped, wrappedBack, nextBtn };
+    }
     const credit = await page.$eval('[data-lightbox-credit]', (e) => e.textContent.trim());
     await page.keyboard.press('Escape');
     const closed = await page.evaluate(() => !document.querySelector('[data-lightbox]').open);
@@ -319,8 +338,14 @@ async function main() {
     // A native Escape close fires the dialog's close event a task later.
     const scroll = await page.waitForFunction(() => document.documentElement.style.overflow === '', null, { timeout: 2000 }).then(() => true, () => false);
     record('Lightbox', 'opens with the photograph loaded', open && loaded, `open=${open} loaded=${loaded}`);
-    record('Lightbox', 'arrow keys, End and wrap-around', second === 2 && last === total && wrapped === 1 && wrappedBack === total, `2nd=${second} last=${last}/${total} wrap=${wrapped} back=${wrappedBack}`);
-    record('Lightbox', 'next button pages', nextBtn === 1, `after next from last: ${nextBtn}`);
+    if (paging) {
+      const { second, last, wrapped, wrappedBack, nextBtn } = paging;
+      record('Lightbox', 'arrow keys, End and wrap-around', second === 2 && last === total && wrapped === 1 && wrappedBack === total, `2nd=${second} last=${last}/${total} wrap=${wrapped} back=${wrappedBack}`);
+      record('Lightbox', 'next button pages', nextBtn === 1, `after next from last: ${nextBtn}`);
+    } else {
+      const controls = await page.$$eval('[data-lightbox-prev], [data-lightbox-next]', (x) => x.length);
+      record('Lightbox', 'single photograph: no paging controls', controls === 0, `controls=${controls}`);
+    }
     record('Lightbox', 'credit caption shown', credit.length > 0, credit);
     record('Lightbox', 'Escape closes, focus returns, scroll unlocked', closed && focus && scroll, `closed=${closed} focus=${focus} scroll=${scroll}`);
     record('Lightbox', 'no console errors', log.errors.length === 0, log.errors.slice(0, 2).join(' | '));

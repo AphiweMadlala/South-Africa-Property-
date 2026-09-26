@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   parseAmount, parsePrice, parseCounts, parseAreas, parseCredits,
-  parseCaption, extractPhones, extractHandles, parseLocationLines,
+  parseCaption, extractPhones, extractHandles, parseLocationLines, parseVocabulary,
 } from '../scripts/lib/parse-caption.mjs';
 
 test('parseAmount handles SA grouping, decimal commas and multipliers', () => {
@@ -165,4 +165,14 @@ test('parseCaption: an empty caption yields nulls, not defaults', () => {
     assert.equal(p[k], null, k);
   }
   assert.deepEqual(p.credits, []);
+});
+
+test('property type needs a word that names the type', () => {
+  assert.equal(parseVocabulary('A residence above the bay, a home for a family').propertyType, null);
+  assert.equal(parseVocabulary('Open house on Sunday from 2pm').propertyType, null);
+  assert.equal(parseVocabulary('A guest house sits beside the pool').propertyType, null);
+  const house = parseVocabulary('This house steps down the slope');
+  assert.equal(house.propertyType.value, 'house');
+  assert.equal(house.propertyType.confidence, 'medium');
+  assert.equal(parseVocabulary('A penthouse in Umhlanga').propertyType.value, 'penthouse');
 });
