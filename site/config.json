@@ -1,0 +1,13 @@
+{
+  "name": "South Africa Property",
+  "bio": "Showcasing the best high-end residential properties in and around South Africa.",
+  "instagram": "southafrica.property",
+  "url": "https://aphiwemadlala.github.io/South-Africa-Property-/",
+  "basePath": "/South-Africa-Property-/",
+  "contact": {
+    "email": null,
+    "whatsapp": null,
+    "_note": "Enquiry details supplied by the owner. Leave null until provided; never fill with a placeholder."
+  },
+  "statusWindowDays": 30
+}

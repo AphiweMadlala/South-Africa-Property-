@@ -1,0 +1,1188 @@
+{
+  "base": "http://127.0.0.1:8770/",
+  "sample": true,
+  "results": [
+    {
+      "area": "Pages",
+      "name": "/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/this-page-does-not-exist/ loads",
+      "ok": true,
+      "detail": "status 404 (404 page served)"
+    },
+    {
+      "area": "Pages",
+      "name": "/this-page-does-not-exist/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/this-page-does-not-exist/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/this-page-does-not-exist/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/this-page-does-not-exist/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/this-page-does-not-exist/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/this-page-does-not-exist/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/places/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/places/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/places/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/places/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/places/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/places/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/places/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/about/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/about/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/about/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/about/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/about/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/about/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/about/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/enquire/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/enquire/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/enquire/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/enquire/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/enquire/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/enquire/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/enquire/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/a-pavilion-house-above-the-atlantic-sample01/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/umhlanga-penthouse-sample09/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/umhlanga-penthouse-sample09/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/umhlanga-penthouse-sample09/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/umhlanga-penthouse-sample09/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/umhlanga-penthouse-sample09/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/umhlanga-penthouse-sample09/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/umhlanga-penthouse-sample09/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/house-on-sandhurst-avenue-sample06/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/beach-house-at-zimbali-sample08/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/beach-house-at-zimbali-sample08/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/beach-house-at-zimbali-sample08/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/beach-house-at-zimbali-sample08/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/beach-house-at-zimbali-sample08/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/beach-house-at-zimbali-sample08/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/beach-house-at-zimbali-sample08/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/courtyard-house-in-the-oaks-sample02/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/the-lookout-sample05/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/the-lookout-sample05/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/the-lookout-sample05/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/the-lookout-sample05/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/the-lookout-sample05/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/the-lookout-sample05/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/the-lookout-sample05/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ridge-house-sample07/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ridge-house-sample07/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ridge-house-sample07/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ridge-house-sample07/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ridge-house-sample07/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/ridge-house-sample07/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/ridge-house-sample07/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/villa-mare-sample03/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/villa-mare-sample03/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/villa-mare-sample03/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/villa-mare-sample03/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/villa-mare-sample03/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/villa-mare-sample03/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/villa-mare-sample03/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/stone-house-in-the-winelands-sample10/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/constantia-modern-sample11/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/constantia-modern-sample11/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/constantia-modern-sample11/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/constantia-modern-sample11/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/constantia-modern-sample11/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/constantia-modern-sample11/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/constantia-modern-sample11/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/lagoon-house-sample12/ loads",
+      "ok": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/lagoon-house-sample12/ console and network clean",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/lagoon-house-sample12/ images load",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/lagoon-house-sample12/ unique IDs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/lagoon-house-sample12/ one h1, lang set",
+      "ok": true,
+      "detail": "h1=1 lang=en-ZA"
+    },
+    {
+      "area": "Pages",
+      "name": "/residences/lagoon-house-sample12/ robots meta",
+      "ok": true,
+      "detail": "robots=noindex, nofollow"
+    },
+    {
+      "area": "Links",
+      "name": "/residences/lagoon-house-sample12/ external links carry rel=noopener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Links",
+      "name": "Instagram links well formed",
+      "ok": true,
+      "detail": "https://www.instagram.com/southafrica.property/, https://ig.me/m/southafrica.property, https://www.instagram.com/example_architects/, https://www.instagram.com/example_photography/"
+    },
+    {
+      "area": "HTML",
+      "name": "404.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "about/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "enquire/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "places/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/a-pavilion-house-above-the-atlantic-sample01/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/beach-house-at-zimbali-sample08/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/constantia-modern-sample11/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/courtyard-house-in-the-oaks-sample02/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/house-on-sandhurst-avenue-sample06/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/lagoon-house-sample12/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/ridge-house-sample07/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/stone-house-in-the-winelands-sample10/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/the-lookout-sample05/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/umhlanga-penthouse-sample09/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "HTML",
+      "name": "residences/villa-mare-sample03/index.html valid",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 375px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 390px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 430px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 768px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 1024px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 1280px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 1440px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "name": "no horizontal overflow at 1920px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe desktop /",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe desktop /residences/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe desktop /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe desktop /places/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe desktop /about/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe desktop /enquire/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe mobile /",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe mobile /residences/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe mobile /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe mobile /places/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe mobile /about/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Accessibility",
+      "name": "axe mobile /enquire/",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Keyboard",
+      "name": "first Tab reaches skip link, Enter moves to main",
+      "ok": true,
+      "detail": "first=skip-link after=main"
+    },
+    {
+      "area": "Keyboard",
+      "name": "focus is visible on navigation links",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Navigation",
+      "name": "mobile menu opens, Escape closes, focus returns",
+      "ok": true,
+      "detail": "open=true closed=true focusReturned=true"
+    },
+    {
+      "area": "Navigation",
+      "name": "mobile menu link navigates",
+      "ok": true,
+      "detail": "http://127.0.0.1:8770/residences/"
+    },
+    {
+      "area": "Navigation",
+      "name": "header link Residences from a residence page",
+      "ok": true,
+      "detail": "http://127.0.0.1:8770/residences/"
+    },
+    {
+      "area": "Navigation",
+      "name": "header link Places from a residence page",
+      "ok": true,
+      "detail": "http://127.0.0.1:8770/places/"
+    },
+    {
+      "area": "Navigation",
+      "name": "header link About from a residence page",
+      "ok": true,
+      "detail": "http://127.0.0.1:8770/about/"
+    },
+    {
+      "area": "Navigation",
+      "name": "header link Enquire from a residence page",
+      "ok": true,
+      "detail": "http://127.0.0.1:8770/enquire/"
+    },
+    {
+      "area": "Filters",
+      "name": "status \"on-the-market\" filters cards and writes the URL",
+      "ok": true,
+      "detail": "3/12, url=http://127.0.0.1:8770/residences/?status=on-the-market"
+    },
+    {
+      "area": "Filters",
+      "name": "result count reads correctly",
+      "ok": true,
+      "detail": "3 residences"
+    },
+    {
+      "area": "Filters",
+      "name": "city options follow the province",
+      "ok": true,
+      "detail": "5 cities"
+    },
+    {
+      "area": "Filters",
+      "name": "Back and Forward restore filter state",
+      "ok": true,
+      "detail": "back={\"p\":\"\",\"url\":\"\"} forward=western-cape"
+    },
+    {
+      "area": "Filters",
+      "name": "a shared filtered link restores state",
+      "ok": true,
+      "detail": "{\"p\":\"western-cape\",\"n\":8}"
+    },
+    {
+      "area": "Filters",
+      "name": "refresh keeps state",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Filters",
+      "name": "sort by price, highest first",
+      "ok": true,
+      "detail": "58000000 ≥ 42500000 ≥ 36000000 ≥ 24950000 ≥ 18500000"
+    },
+    {
+      "area": "Filters",
+      "name": "empty state shows and Clear filters restores all",
+      "ok": true,
+      "detail": "empty=true cleared=true"
+    },
+    {
+      "area": "Filters",
+      "name": "no console errors while filtering",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Filters",
+      "name": "mobile filter sheet: filters apply, controls return, focus restores",
+      "ok": true,
+      "detail": "open=true button=\"3 residences\" closed=true controlsBack=true focus=true badge=(1)"
+    },
+    {
+      "area": "Lightbox",
+      "name": "opens with the photograph loaded",
+      "ok": true,
+      "detail": "open=true loaded=true"
+    },
+    {
+      "area": "Lightbox",
+      "name": "arrow keys, End and wrap-around",
+      "ok": true,
+      "detail": "2nd=2 last=8/8 wrap=1 back=8"
+    },
+    {
+      "area": "Lightbox",
+      "name": "next button pages",
+      "ok": true,
+      "detail": "after next from last: 1"
+    },
+    {
+      "area": "Lightbox",
+      "name": "credit caption shown",
+      "ok": true,
+      "detail": "Photograph: @example_photography"
+    },
+    {
+      "area": "Lightbox",
+      "name": "Escape closes, focus returns, scroll unlocked",
+      "ok": true,
+      "detail": "closed=true focus=true scroll=true"
+    },
+    {
+      "area": "Lightbox",
+      "name": "no console errors",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "area": "Motion",
+      "name": "reduced motion disables the cover animation and smooth scrolling",
+      "ok": true,
+      "detail": "animation=none scroll=auto"
+    },
+    {
+      "area": "Performance",
+      "name": "layout shift desktop /",
+      "ok": true,
+      "detail": "CLS 0.0000"
+    },
+    {
+      "area": "Performance",
+      "name": "layout shift desktop /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "ok": true,
+      "detail": "CLS 0.0000"
+    },
+    {
+      "area": "Performance",
+      "name": "layout shift desktop /residences/",
+      "ok": true,
+      "detail": "CLS 0.0000"
+    },
+    {
+      "area": "Performance",
+      "name": "layout shift mobile /",
+      "ok": true,
+      "detail": "CLS 0.0000"
+    },
+    {
+      "area": "Performance",
+      "name": "layout shift mobile /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "ok": true,
+      "detail": "CLS 0.0000"
+    },
+    {
+      "area": "Performance",
+      "name": "layout shift mobile /residences/",
+      "ok": true,
+      "detail": "CLS 0.0000"
+    },
+    {
+      "area": "Content",
+      "name": "\"For sale\" only for verified listings, and every status is dated",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

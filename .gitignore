@@ -1,2 +1,7 @@
 node_modules/
 .DS_Store
+.preview/
+.preview-data/
+.cache/
+.impeccable/review/
+.impeccable/build/

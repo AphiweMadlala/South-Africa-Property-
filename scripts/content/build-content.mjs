@@ -192,7 +192,7 @@ export function buildContent({ posts, residences, manifest, hashes = {}, profile
       links: [...new Set(members.flatMap((p) => p.parsed.links))],
       contacts: { phones: [...new Set(members.flatMap((p) => p.parsed.phones))], emails: [...new Set(members.flatMap((p) => p.parsed.emails))] },
       gallery: galleryFor(members, manifestByPost, hashes),
-      posts: members.map((p) => ({ id: p.id, url: p.url, postedAt: day(p.postedAt), type: p.type, caption: p.caption })),
+      posts: members.map((p) => ({ id: p.id, url: p.url, postedAt: day(p.postedAt), type: p.type, caption: p.caption, signals: p.parsed.signals.map((s) => s.kind) })),
       firstFeatured: day(first.postedAt),
       lastFeatured: day(members.at(-1).postedAt),
       needsReview: Boolean(cluster.needsReview),
