@@ -85,13 +85,17 @@ export function residence(model, r, { root }) {
 
       <div class="run">
         ${r.story ? html`<div class="story">
-          <p class="story__text">${r.story.text}</p>
-          <p class="story__source">From the post of ${date(r.story.date)} · <a href="${r.story.url}" rel="noopener">View on Instagram</a></p>
+          <div class="story__text">${r.story.paragraphs.map((lines) => html`<p>${lines.map((line, i) => html`${i ? html`<br>` : ''}${line}`)}</p>`)}</div>
+          <p class="story__source">From the post of ${date(r.story.date)} · <a href="${r.story.url}" rel="noopener">Read the full caption on Instagram</a></p>
         </div>` : ''}
 
         ${rows.map((row) => row.type === 'pair'
           ? html`<div class="run__pair">${row.items.map((img) => runItem(img, img.index, total, root, '(min-width: 64em) 30vw, 50vw'))}</div>`
           : html`<div class="run__row run__row--${row.type}">${runItem(row.items[0], row.items[0].index, total, root, row.type === 'wide' ? '(min-width: 64em) 60vw, 100vw' : '(min-width: 64em) 40vw, 66vw')}</div>`)}
+
+        ${rows.length ? html`<p class="run__credit">${r.photoCredit.length
+          ? `Photographs by ${r.photoCredit.join(', ')}, as credited on Instagram.`
+          : `Photographs as published by @${site.instagram.handle}.`}</p>` : ''}
 
         ${total > 1 ? html`<button class="btn-line run__more" type="button" data-lightbox-open="0">${icon('grid', { size: 18 })}<span>View all ${total} photographs</span></button>` : ''}
 

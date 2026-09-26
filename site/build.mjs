@@ -77,6 +77,36 @@ function cleanCaption(text) {
     .trim();
 }
 
+// The caption as the residence page sets it: paragraphs of lines, without the
+// lines the page already shows (the name, the 📍 place line, emoji-only spec
+// rows) or the account's own call to action, and without emoji. The verbatim
+// caption stays one click away on Instagram.
+const EMOJI = /[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{1F3FB}-\u{1F3FF}\u200d\ufe0f\u20e3]/gu;
+const CTA = /\b(?:dm|message|tag|follow|contact) us\b|\blink in (?:our )?bio\b|\bto be featured\b|\bget featured\b/i;
+const norm = (t) => t.toLowerCase().replace(EMOJI, '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+
+function storyParagraphs(text, { title }) {
+  const paragraphs = [];
+  let current = [];
+  for (const raw of cleanCaption(text).split('\n')) {
+    const line = raw.replace(EMOJI, '').replace(/\s{2,}/g, ' ').trim();
+    const drop = !line
+      || /^\s*📍/u.test(raw)
+      || /^\s*location\s*[:\-–]/i.test(line)
+      || !/\p{L}/u.test(line)
+      || (title && norm(line) === norm(title))
+      || CTA.test(line);
+    if (!raw.trim()) {
+      if (current.length) paragraphs.push(current);
+      current = [];
+    } else if (!drop) {
+      current.push(line);
+    }
+  }
+  if (current.length) paragraphs.push(current);
+  return paragraphs;
+}
+
 const orient = (w, h) => (w / h >= 1.2 ? 'landscape' : w / h >= 0.9 ? 'square' : 'portrait');
 
 // ------------------------------------------------------------------- model
@@ -111,6 +141,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
         prepared,
         alt: g.alt && !/^photo (by|shared by)/i.test(g.alt) ? g.alt : `${p.title.text}${p.place ? `, ${placeLine(p.place, { withProvince: false })}` : ''}`,
         credit: g.credit?.length ? `Photograph: ${g.credit.join(', ')}` : `Published by @${config.instagram}`,
+        creditName: g.credit?.length ? g.credit.join(', ') : null,
         postUrl: post?.url ?? null,
       });
     }
@@ -151,7 +182,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
     }
 
     const storyPost = [...p.posts].sort((a, b) => cleanCaption(b.caption).length - cleanCaption(a.caption).length)[0];
-    const storyText = storyPost ? cleanCaption(storyPost.caption) : '';
+    const storyText = storyPost ? storyParagraphs(storyPost.caption, { title: p.title.source === 'caption' ? p.title.text : null }) : [];
     const history = [...p.posts].sort((a, b) => String(a.postedAt).localeCompare(String(b.postedAt))).map((post, i) => {
       const kinds = post.signals ?? [];
       const label = kinds.includes('sold') ? 'Reported sold'
@@ -182,7 +213,8 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
       factItems,
       particulars,
       credits,
-      story: storyText ? { text: storyText, date: storyPost.postedAt, url: storyPost.url } : null,
+      story: storyText.length ? { paragraphs: storyText, date: storyPost.postedAt, url: storyPost.url } : null,
+      photoCredit: [...new Set(gallery.map((g) => g.creditName).filter(Boolean))],
       tags: [...p.architecture, ...p.amenities].map((k) => VOCAB[k]).filter(Boolean),
       history,
       gallery,
@@ -225,7 +257,8 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
   })[0];
   const selected = residences.filter((r) => r !== lead).sort((a, b) => b.completeness - a.completeness || String(b.lastFeatured).localeCompare(String(a.lastFeatured))).slice(0, 5);
   const forSale = residences.filter((r) => r.status.status === 'on-the-market');
-  const recent = residences.filter((r) => r !== lead).slice(0, 10);
+  // Recently featured continues the contents: homes not already on the page.
+  const recent = residences.filter((r) => r !== lead && !selected.includes(r)).slice(0, 10);
 
   // Places, from the residences themselves.
   const provinceMap = new Map();

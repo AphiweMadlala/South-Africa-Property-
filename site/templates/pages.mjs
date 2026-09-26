@@ -1,4 +1,5 @@
 import { html } from '../lib/html.mjs';
+import { picture } from '../lib/images.mjs';
 import { STATUS } from '../lib/format.mjs';
 import { arrowLink } from './parts.mjs';
 
@@ -9,9 +10,10 @@ export function placesPage(model, { root }) {
   <h1>Places</h1>
   <p class="page-head__intro">Where the collection's residences are, by province, city or town, and suburb or estate. ${counts.residences} ${counts.residences === 1 ? 'residence' : 'residences'} in ${counts.cities} ${counts.cities === 1 ? 'city or town' : 'cities and towns'}.</p>
 </section>
-<section class="wrap" style="padding-bottom: var(--section)" aria-label="Places">
+<div class="wrap page-body">
   ${provinces.map((p) => html`<section class="province" aria-labelledby="p-${p.slug}">
     <div class="province__name">
+      ${p.cover ? html`<a class="province__photo" href="${root}${p.url}" tabindex="-1" aria-hidden="true">${picture(p.cover, { alt: '', sizes: '(min-width: 64em) 30vw, 100vw', root })}</a>` : ''}
       <h2 id="p-${p.slug}"><a href="${root}${p.url}">${p.name}</a></h2>
       <p class="meta place">${p.count} ${p.count === 1 ? 'residence' : 'residences'}</p>
     </div>
@@ -22,7 +24,7 @@ export function placesPage(model, { root }) {
       </li>`)}
     </ul>
   </section>`)}
-</section>`;
+</div>`;
 }
 
 export function aboutPage(model, { root }) {
@@ -40,29 +42,42 @@ export function aboutPage(model, { root }) {
   <h1>About</h1>
   <p class="page-head__intro">${site.bio}</p>
 </section>
-<section class="section" style="padding-top: 0" aria-label="About the collection">
-  <div class="wrap">
-    <div class="prose">
+<div class="wrap page-body folio">
+  <section class="folio__row" aria-labelledby="about-collection">
+    <h2 id="about-collection">The collection</h2>
+    <div class="folio__body prose">
       <p>${site.name} features residences on Instagram at <a href="${site.instagram.url}" rel="noopener">@${site.instagram.handle}</a>. This website gathers those features into one collection${counts.residences ? ` of ${counts.residences} ${counts.residences === 1 ? 'residence' : 'residences'}` : ''}, arranged by place, with each home's photographs, particulars and credits as they were published.</p>
-      <h2>How status works</h2>
+    </div>
+  </section>
+  <section class="folio__row" aria-labelledby="about-status">
+    <h2 id="about-status">How status works</h2>
+    <div class="folio__body prose">
       <p>Homes are featured for different reasons, and some are for sale. Every status carries a date, because a listing can change after it is posted.</p>
       <dl>
         ${rows.map((k) => html`<div><dt>${STATUS[k].label}</dt><dd>${meaning[k]}</dd></div>`)}
       </dl>
-      <h2>Credits</h2>
+    </div>
+  </section>
+  <section class="folio__row" aria-labelledby="about-credits">
+    <h2 id="about-credits">Credits</h2>
+    <div class="folio__body prose">
       <p>Architects, interior designers, photographers and agents are credited as each post credits them. Photographs remain the property of the photographers and agencies named with each residence.</p>
-      <h2>Enquiries</h2>
+    </div>
+  </section>
+  <section class="folio__row" aria-labelledby="about-enquiries">
+    <h2 id="about-enquiries">Enquiries</h2>
+    <div class="folio__body prose">
       <p>To ask about a residence or about featuring a home, see <a href="${root}enquire/">Enquiries</a>.</p>
     </div>
-  </div>
-</section>`;
+  </section>
+</div>`;
 }
 
 export function notFoundPage(model, { root }) {
   return html`
-<section class="page-head wrap" style="padding-bottom: var(--section)">
+<section class="page-head page-head--alone wrap">
   <h1>This page isn't in the collection.</h1>
   <p class="page-head__intro">The residence may have been renamed, or the link may be incomplete.</p>
-  <p style="margin-top: var(--s-6)">${arrowLink(`${root}residences/`, 'Browse all residences')}</p>
+  <p class="page-head__action">${arrowLink(`${root}residences/`, 'Browse all residences')}</p>
 </section>`;
 }

@@ -21,12 +21,12 @@ export function residencesPage(model, { root }) {
 
 <div class="filters" data-filters hidden>
   <search class="wrap filters__bar" data-filter-bar aria-label="Filter residences">
+    ${f.status ? html`<fieldset class="segmented">
+      <legend class="visually-hidden">Status</legend>
+      <label><input type="radio" name="status" value="" checked data-filter="status"><span>All</span></label>
+      ${f.status.map((o) => html`<label><input type="radio" name="status" value="${o.value}" data-filter="status"><span>${o.label} <span class="num">(${o.count})</span></span></label>`)}
+    </fieldset>` : ''}
     <div class="filters__controls" data-filter-controls>
-      ${f.status ? html`<fieldset class="segmented">
-        <legend class="visually-hidden">Status</legend>
-        <label><input type="radio" name="status" value="" checked data-filter="status"><span>All</span></label>
-        ${f.status.map((o) => html`<label><input type="radio" name="status" value="${o.value}" data-filter="status"><span>${o.label} <span class="num">(${o.count})</span></span></label>`)}
-      </fieldset>` : ''}
       <div class="filters__row">
         ${f.province ? select('province', 'Province', f.province, { anyLabel: 'All provinces' }) : ''}
         ${f.city ? select('city', 'City or town', f.city, { anyLabel: 'All cities and towns', dataAttr: 'province' }) : ''}

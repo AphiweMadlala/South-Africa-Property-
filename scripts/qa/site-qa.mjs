@@ -280,6 +280,21 @@ async function main() {
     await page.close();
   }
   {
+    // On phones the status choice stays on the bar, outside the sheet.
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const page = await ctx.newPage();
+    await page.goto(`${BASE}residences/`, { waitUntil: 'networkidle' });
+    const onBar = await page.$$eval('[data-filter-bar] > .segmented input[name=status]', (x) => x.map((i) => i.value).filter(Boolean));
+    if (onBar.length) {
+      const st = onBar[0];
+      await page.click(`[data-filter-bar] > .segmented input[name=status][value="${st}"]`, { force: true });
+      const shown = await page.$$eval('[data-card]:not([hidden]) > a', (x) => x.map((a) => a.dataset.status));
+      const visible = await page.$eval('[data-filter-bar] > .segmented', (e) => e.getBoundingClientRect().height > 0);
+      record('Filters', 'phone: status row stays on the bar and filters', visible && shown.length > 0 && shown.every((x) => x === st) && page.url().includes(`status=${st}`), `visible=${visible} shown=${shown.length} url=${page.url()}`);
+    }
+    await ctx.close();
+  }
+  {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
     const page = await ctx.newPage();
     await page.goto(`${BASE}residences/`, { waitUntil: 'networkidle' });

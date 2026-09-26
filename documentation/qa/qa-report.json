@@ -762,7 +762,7 @@
       "area": "Links",
       "name": "Instagram links well formed",
       "ok": true,
-      "detail": "https://www.instagram.com/southafrica.property/, https://ig.me/m/southafrica.property, https://www.instagram.com/example_architects/, https://www.instagram.com/example_photography/"
+      "detail": "8 distinct links"
     },
     {
       "area": "HTML",
@@ -934,7 +934,7 @@
     },
     {
       "area": "Accessibility",
-      "name": "axe desktop /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "name": "axe desktop /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/",
       "ok": true,
       "detail": ""
     },
@@ -970,7 +970,7 @@
     },
     {
       "area": "Accessibility",
-      "name": "axe mobile /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "name": "axe mobile /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/",
       "ok": true,
       "detail": ""
     },
@@ -1096,9 +1096,15 @@
     },
     {
       "area": "Filters",
+      "name": "phone: status row stays on the bar and filters",
+      "ok": true,
+      "detail": "visible=true shown=3 url=http://127.0.0.1:8770/residences/?status=on-the-market"
+    },
+    {
+      "area": "Filters",
       "name": "mobile filter sheet: filters apply, controls return, focus restores",
       "ok": true,
-      "detail": "open=true button=\"3 residences\" closed=true controlsBack=true focus=true badge=(1)"
+      "detail": "open=true applied=province=western-cape button=\"8 residences\" closed=true controlsBack=true focus=true badge=(1)"
     },
     {
       "area": "Lightbox",
@@ -1110,7 +1116,7 @@
       "area": "Lightbox",
       "name": "arrow keys, End and wrap-around",
       "ok": true,
-      "detail": "2nd=2 last=8/8 wrap=1 back=8"
+      "detail": "2nd=2 last=9/9 wrap=1 back=9"
     },
     {
       "area": "Lightbox",
@@ -1122,7 +1128,7 @@
       "area": "Lightbox",
       "name": "credit caption shown",
       "ok": true,
-      "detail": "Photograph: @example_photography"
+      "detail": "Published by @southafrica.property"
     },
     {
       "area": "Lightbox",
@@ -1150,7 +1156,7 @@
     },
     {
       "area": "Performance",
-      "name": "layout shift desktop /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "name": "layout shift desktop /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/",
       "ok": true,
       "detail": "CLS 0.0000"
     },
@@ -1168,7 +1174,7 @@
     },
     {
       "area": "Performance",
-      "name": "layout shift mobile /residences/a-pavilion-house-above-the-atlantic-sample01/",
+      "name": "layout shift mobile /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/",
       "ok": true,
       "detail": "CLS 0.0000"
     },

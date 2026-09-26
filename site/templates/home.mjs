@@ -40,6 +40,11 @@ export function home(model, { root }) {
   ].filter(Boolean).join(' ');
   const since = counts.since ? `, featured on Instagram since ${monthYear(counts.since)}` : '';
   const kinds = variants(selected);
+  // Grounds alternate down the page, starting with stone after the statement,
+  // whichever sections this collection has.
+  const present = { places: provinces.length > 0, selected: selected.length > 0, sale: forSale.length > 0, recent: recent.length >= 3 };
+  const order = Object.keys(present).filter((k) => present[k]);
+  const ground = (k) => (order.indexOf(k) % 2 === 0 ? 'section section--stone' : 'section');
 
   return html`
 <section class="cover" aria-labelledby="cover-title">
@@ -65,38 +70,7 @@ export function home(model, { root }) {
   </div>
 </section>
 
-${selected.length ? html`<section class="section section--stone" aria-labelledby="selected-title">
-  <div class="wrap">
-    <div class="section__head">
-      <h2 class="section__title" id="selected-title">Selected residences</h2>
-      <p class="section__intro">Homes from the collection, with their photography, places and particulars as published.</p>
-    </div>
-    <div class="features">
-      ${selected.map((r, i) => feature(r, kinds[i], root))}
-    </div>
-  </div>
-</section>` : ''}
-
-${forSale.length ? html`<section class="section" aria-labelledby="sale-title">
-  <div class="wrap">
-    <div class="section__head">
-      <h2 class="section__title" id="sale-title">For sale now</h2>
-      <p class="section__intro">Offered for sale in the last ${model.windowDays} days by a named agent or agency. Dates show when each listing was last confirmed.</p>
-    </div>
-    <ul class="register">
-      ${forSale.map((r) => html`<li class="register__row">
-        <a class="register__link" href="${root}${r.url}">
-          <div class="register__thumb">${r.cover ? picture(r.cover, { alt: '', sizes: '8rem', root }) : ''}</div>
-          <h3 class="register__title">${r.title}</h3>
-          <p class="meta place">${r.placeLine ?? ''}</p>
-          <div class="register__price"><p class="price">${r.priceText ?? ''}</p>${statusTag(r, { compact: true })}</div>
-        </a>
-      </li>`)}
-    </ul>
-  </div>
-</section>` : ''}
-
-${provinces.length ? html`<section class="section ${forSale.length ? 'section--stone' : ''}" aria-labelledby="places-title">
+${provinces.length ? html`<section class="${ground('places')}" aria-labelledby="places-title">
   <div class="wrap">
     <div class="section__head">
       <h2 class="section__title" id="places-title">Places</h2>
@@ -116,7 +90,38 @@ ${provinces.length ? html`<section class="section ${forSale.length ? 'section--s
   </div>
 </section>` : ''}
 
-${recent.length > 2 ? html`<section class="section" aria-labelledby="recent-title">
+${selected.length ? html`<section class="${ground('selected')}" aria-labelledby="selected-title">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 class="section__title" id="selected-title">Selected residences</h2>
+      <p class="section__intro">Homes from the collection, with their photography, places and particulars as published.</p>
+    </div>
+    <div class="features">
+      ${selected.map((r, i) => feature(r, kinds[i], root))}
+    </div>
+  </div>
+</section>` : ''}
+
+${forSale.length ? html`<section class="${ground('sale')}" aria-labelledby="sale-title">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 class="section__title" id="sale-title">For sale now</h2>
+      <p class="section__intro">Offered for sale in the last ${model.windowDays} days by a named agent or agency. Dates show when each listing was last confirmed.</p>
+    </div>
+    <ul class="register">
+      ${forSale.map((r) => html`<li class="register__row">
+        <a class="register__link" href="${root}${r.url}">
+          <div class="register__thumb">${r.cover ? picture(r.cover, { alt: '', sizes: '8rem', root }) : ''}</div>
+          <h3 class="register__title">${r.title}</h3>
+          <p class="meta place">${r.placeLine ?? ''}</p>
+          <div class="register__price"><p class="price">${r.priceText ?? ''}</p>${statusTag(r, { compact: true })}</div>
+        </a>
+      </li>`)}
+    </ul>
+  </div>
+</section>` : ''}
+
+${recent.length >= 3 ? html`<section class="${ground('recent')}" aria-labelledby="recent-title">
   <div class="wrap section__head">
     <h2 class="section__title" id="recent-title">Recently featured</h2>
     <div class="strip__controls" data-strip-controls hidden>

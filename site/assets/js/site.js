@@ -253,7 +253,9 @@
       emptyEl.hidden = shown > 0;
       const active = KEYS.filter((k) => k !== 'sort' && state[k]).length;
       $$('[data-filter-clear]').forEach((b) => { if (!b.closest('[data-empty]') && !b.closest('[data-filter-sheet]')) b.hidden = active === 0; });
-      if (activeEl) activeEl.textContent = active ? `(${active})` : '';
+      // The sheet's button counts the filters inside the sheet; status stays on the bar.
+      const inSheet = KEYS.filter((k) => !['sort', 'status'].includes(k) && state[k]).length;
+      if (activeEl) activeEl.textContent = inSheet ? `(${inSheet})` : '';
     };
 
     const write = (state, push) => {

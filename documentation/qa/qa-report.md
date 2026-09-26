@@ -1,8 +1,8 @@
 # QA report
 
-Generated 2026-09-26T15:24:44.525Z by `scripts/qa/site-qa.mjs` against `http://127.0.0.1:8770/` (build: `.preview`, synthetic preview data).
+Generated 2026-09-26T15:48:49.000Z by `scripts/qa/site-qa.mjs` against `http://127.0.0.1:8770/` (build: `.preview`, synthetic preview data).
 
-**197 of 197 checks passed.**
+**198 of 198 checks passed.**
 
 ## Pages
 
@@ -139,7 +139,7 @@ Generated 2026-09-26T15:24:44.525Z by `scripts/qa/site-qa.mjs` against `http://1
 | /residences/stone-house-in-the-winelands-sample10/ external links carry rel=noopener | Pass |  |
 | /residences/constantia-modern-sample11/ external links carry rel=noopener | Pass |  |
 | /residences/lagoon-house-sample12/ external links carry rel=noopener | Pass |  |
-| Instagram links well formed | Pass | https://www.instagram.com/southafrica.property/, https://ig.me/m/southafrica.property, https://www.instagram.com/example_architects/, https://www.instagram.com/example_photography/ |
+| Instagram links well formed | Pass | 8 distinct links |
 
 ## HTML
 
@@ -183,13 +183,13 @@ Generated 2026-09-26T15:24:44.525Z by `scripts/qa/site-qa.mjs` against `http://1
 | --- | --- | --- |
 | axe desktop / | Pass |  |
 | axe desktop /residences/ | Pass |  |
-| axe desktop /residences/a-pavilion-house-above-the-atlantic-sample01/ | Pass |  |
+| axe desktop /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ | Pass |  |
 | axe desktop /places/ | Pass |  |
 | axe desktop /about/ | Pass |  |
 | axe desktop /enquire/ | Pass |  |
 | axe mobile / | Pass |  |
 | axe mobile /residences/ | Pass |  |
-| axe mobile /residences/a-pavilion-house-above-the-atlantic-sample01/ | Pass |  |
+| axe mobile /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ | Pass |  |
 | axe mobile /places/ | Pass |  |
 | axe mobile /about/ | Pass |  |
 | axe mobile /enquire/ | Pass |  |
@@ -225,16 +225,17 @@ Generated 2026-09-26T15:24:44.525Z by `scripts/qa/site-qa.mjs` against `http://1
 | sort by price, highest first | Pass | 58000000 ≥ 42500000 ≥ 36000000 ≥ 24950000 ≥ 18500000 |
 | empty state shows and Clear filters restores all | Pass | empty=true cleared=true |
 | no console errors while filtering | Pass |  |
-| mobile filter sheet: filters apply, controls return, focus restores | Pass | open=true button="3 residences" closed=true controlsBack=true focus=true badge=(1) |
+| phone: status row stays on the bar and filters | Pass | visible=true shown=3 url=http://127.0.0.1:8770/residences/?status=on-the-market |
+| mobile filter sheet: filters apply, controls return, focus restores | Pass | open=true applied=province=western-cape button="8 residences" closed=true controlsBack=true focus=true badge=(1) |
 
 ## Lightbox
 
 | Check | Result | Detail |
 | --- | --- | --- |
 | opens with the photograph loaded | Pass | open=true loaded=true |
-| arrow keys, End and wrap-around | Pass | 2nd=2 last=8/8 wrap=1 back=8 |
+| arrow keys, End and wrap-around | Pass | 2nd=2 last=9/9 wrap=1 back=9 |
 | next button pages | Pass | after next from last: 1 |
-| credit caption shown | Pass | Photograph: @example_photography |
+| credit caption shown | Pass | Published by @southafrica.property |
 | Escape closes, focus returns, scroll unlocked | Pass | closed=true focus=true scroll=true |
 | no console errors | Pass |  |
 
@@ -249,10 +250,10 @@ Generated 2026-09-26T15:24:44.525Z by `scripts/qa/site-qa.mjs` against `http://1
 | Check | Result | Detail |
 | --- | --- | --- |
 | layout shift desktop / | Pass | CLS 0.0000 |
-| layout shift desktop /residences/a-pavilion-house-above-the-atlantic-sample01/ | Pass | CLS 0.0000 |
+| layout shift desktop /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ | Pass | CLS 0.0000 |
 | layout shift desktop /residences/ | Pass | CLS 0.0000 |
 | layout shift mobile / | Pass | CLS 0.0000 |
-| layout shift mobile /residences/a-pavilion-house-above-the-atlantic-sample01/ | Pass | CLS 0.0000 |
+| layout shift mobile /residences/a-farmhouse-among-the-vines-restored-with-a-new-glass-wing-sample04/ | Pass | CLS 0.0000 |
 | layout shift mobile /residences/ | Pass | CLS 0.0000 |
 
 ## Content
