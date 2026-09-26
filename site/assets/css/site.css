@@ -662,20 +662,30 @@ button {
   text-decoration: none;
 }
 
+/* Phones: the caption leaves the photograph for the night panel below it, and
+   the credit becomes the photograph's caption line, on night rather than on
+   the image. */
 @media (max-width: 47.99em) {
+  .cover {
+    display: flex;
+    flex-direction: column;
+  }
+
   .cover__media {
     height: clamp(20rem, 62svh, 34rem);
   }
 
-  .cover__caption {
+  .cover__credit {
     position: static;
-    padding-block: var(--s-6) var(--s-7);
-    background: var(--night);
+    align-self: flex-end;
+    padding: var(--s-2) var(--gutter) 0;
+    color: var(--night-muted);
   }
 
-  .cover__credit {
-    bottom: auto;
-    top: calc(clamp(20rem, 62svh, 34rem) - 2rem);
+  .cover__caption {
+    position: static;
+    padding-block: var(--s-5) var(--s-7);
+    background: var(--night);
   }
 }
 

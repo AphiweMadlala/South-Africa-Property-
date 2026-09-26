@@ -358,7 +358,7 @@ The system is flat. No surface casts a shadow. Depth comes from the photographs,
 - **Skip link:** the first focusable element, ink on paper.
 
 ### Cover
-One home, full bleed. The caption sits bottom-left on desktop over a scrim that reaches 58% black where the title begins and deepens to 80%, so the title holds at least 3:1 over a white facade. The caption carries four things, in order: the Caslon name, the tracked place line, the dated status and one arrow link. The photographer's credit sits bottom-right and links to the post. On phones the caption moves below the photograph onto night. With motion allowed, the photograph settles from 104.5% to 100% over 1.8s; this is the site's only authored motion moment.
+One home, full bleed. The caption sits bottom-left on desktop over a scrim that reaches 58% black where the title begins and deepens to 80%, so the title holds at least 3:1 over a white facade. The caption carries four things, in order: the Caslon name, the tracked place line, the dated status and one arrow link. The photographer's credit sits bottom-right, in the darkest part of the scrim, and links to the post. On phones the caption moves below the photograph onto night, and the credit becomes a right-aligned caption line directly under the image, so it never sits on the bare photograph. With motion allowed, the photograph settles from 104.5% to 100% over 1.8s; this is the site's only authored motion moment.
 
 ### Editorial features (home)
 Compositions a, b, c and d from Layout. Each has a title-sized Caslon name, a place label, up to four facts, the full status line, `price-sm` and an arrow link, bottom-aligned against the photograph. On hover the photograph scales to 102.5% over 900ms.

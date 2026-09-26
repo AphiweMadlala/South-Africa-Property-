@@ -42,11 +42,19 @@ exactly as committed, including folders that start with an underscore.
   every link and asset URL in `docs/` is relative.
 - **No server.** Filters and index state live in the URL query and must survive
   refresh, back/forward and shared links on the client alone.
-- **Media budget.** Built images are committed, so keep them lean: AVIF (plus
-  WebP only where needed), at most two widths, and a curated set of frames per
-  residence. Keep the repository well under GitHub's recommended 1 GB and the
-  published site under Pages' 1 GB limit. Originals of the residences used
-  stay in `media/source/`.
+- **Media budget.** Built images are committed, so they stay lean. Each
+  photograph ships as AVIF at 720px and at its full width (Instagram serves
+  1080px, occasionally 1440px), plus a single 720px WebP for browsers without
+  AVIF, and each residence adds one JPEG link-preview image for WhatsApp and
+  social cards. Nothing is upscaled.
+  - Measured on natural photographs, that is about 200 KB per photograph.
+    An archive of about 1,300 photographs is roughly 260 MB in `docs/media/`,
+    within Pages' 1 GB site limit.
+  - The originals in `media/source/` (about 200 KB each, as Instagram serves
+    them) stay in the repository so the site can be rebuilt after Instagram's
+    links expire.
+  - Derivatives are named by photograph, so a rebuild with unchanged photographs
+    adds nothing to the history.
 
 ## Search and credits
 

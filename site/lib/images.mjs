@@ -1,8 +1,9 @@
 // Responsive image derivatives and <picture> markup.
 //
-// Every image ships as AVIF with a WebP fallback at a small set of widths, with
-// explicit dimensions and its dominant colour as the placeholder, so nothing
-// shifts while it loads. Derivatives are cached by source file and width.
+// Every image ships as AVIF at each width, with one small WebP as the fallback
+// for browsers without AVIF, explicit dimensions and its dominant colour as the
+// placeholder, so nothing shifts while it loads. Derivatives are cached by
+// source file and width. Link previews get a JPEG, which every app displays.
 
 import { mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
@@ -26,7 +27,7 @@ export function createImagePipeline({ outDir, mediaUrl = 'media' }) {
       await mkdir(path.join(outDir, mediaUrl), { recursive: true });
       const variants = { avif: [], webp: [] };
       for (const w of targets) {
-        for (const fmt of ['avif', 'webp']) {
+        for (const fmt of w === targets[0] ? ['avif', 'webp'] : ['avif']) {
           const name = `${image.id}-${w}.${fmt}`;
           const file = path.join(outDir, mediaUrl, name);
           if (!(await exists(file))) {
@@ -49,7 +50,24 @@ export function createImagePipeline({ outDir, mediaUrl = 'media' }) {
     return job;
   }
 
-  return { prepare };
+  // A 1.91:1 JPEG for og:image, cropped around the most detailed region.
+  async function preview(image) {
+    const meta = await sharp(image.src).metadata();
+    const width = Math.min(1200, meta.width);
+    const height = Math.round(width / 1.91);
+    const name = `${image.id}-og.jpg`;
+    const file = path.join(outDir, mediaUrl, name);
+    if (!(await exists(file))) {
+      await mkdir(path.dirname(file), { recursive: true });
+      await sharp(image.src).rotate()
+        .resize({ width, height, fit: 'cover', position: sharp.strategy.attention })
+        .jpeg({ quality: 78, mozjpeg: true })
+        .toFile(file);
+    }
+    return { url: `${mediaUrl}/${name}`, width, height };
+  }
+
+  return { prepare, preview };
 }
 
 // <picture> for a prepared image. `root` makes URLs relative to the page.

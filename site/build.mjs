@@ -146,6 +146,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
       });
     }
     if (!gallery.length) continue;
+    const og = await pipeline.preview({ id: p.gallery[0].id, src: path.join(DATA, p.gallery[0].file) });
     const f = p.facts;
     const v = (x) => x?.value ?? null;
     // A low-confidence type is an inference, not something the post states.
@@ -222,6 +223,7 @@ async function buildModel({ properties, places, profile, config, pipeline }) {
       coverAlt: gallery[0].alt,
       coverCredit: photographer ? `Photograph: ${photographer.handle ? `@${photographer.handle}` : photographer.name}` : null,
       coverPostUrl: gallery[0].postUrl,
+      og,
       featureImage: { portrait: byOrient('portrait') ?? byOrient('square'), landscape: byOrient('landscape') },
       filter: {
         province: slug(p.place?.province ?? p.place?.country ?? ''),
@@ -377,13 +379,16 @@ async function main() {
   // Copy the derivatives the pages reference, then the static assets.
   await rm(path.join(OUT, 'media'), { recursive: true, force: true });
   await mkdir(path.join(OUT, 'media'), { recursive: true });
-  const used = new Set(model.residences.flatMap((r) => r.gallery.flatMap((g) => [...g.prepared.variants.avif, ...g.prepared.variants.webp].map((v) => v.url))));
+  const used = new Set(model.residences.flatMap((r) => [
+    r.og.url,
+    ...r.gallery.flatMap((g) => [...g.prepared.variants.avif, ...g.prepared.variants.webp].map((v) => v.url)),
+  ]));
   for (const url of used) await cp(path.join(ROOT, '.cache', url), path.join(OUT, url));
   await cp(path.join(ROOT, 'site/assets'), path.join(OUT, 'assets'), { recursive: true, filter: (src) => !src.endsWith('README.md') });
   await writeFile(path.join(OUT, '.nojekyll'), '');
 
   const { site } = model;
-  const coverOg = model.lead.cover.variants.webp.find((v) => v.w >= 1200)?.url ?? model.lead.cover.variants.webp.at(-1).url;
+  const coverOg = model.lead.og;
 
   await writePage('index.html', 0, ({ root }) => home(model, { root }), {
     site, page: { path: '', nav: null }, title: null, description: site.bio, image: coverOg,
@@ -397,7 +402,7 @@ async function main() {
       page: { path: r.url, nav: 'residences', type: 'article' },
       title: r.title,
       description: [r.placeLine, r.statusLine, r.factItems.slice(0, 3).join(', ')].filter(Boolean).join(' · '),
-      image: r.cover.variants.webp.find((v) => v.w >= 1200)?.url ?? r.cover.variants.webp.at(-1).url,
+      image: r.og,
     });
   }
   await writePage('places/index.html', 1, ({ root }) => placesPage(model, { root }), {

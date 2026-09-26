@@ -36,6 +36,7 @@ Extraction was moved to GitHub's machines, which can reach Apify and Instagram.
 | 2026-09-26 | Extract Instagram archive, runs 36241907491 (two attempts) and 36243066794 | Stopped at the token check: `APIFY_TOKEN` is not an Actions secret. The owner had added it as a Codespaces secret, which Actions cannot read |
 | 2026-09-26 | Fetch Instagram (public), run 36243066976 | Instagram answered HTTP 429 (rate limited) to GitHub's runners |
 | 2026-09-26 15:29 UTC | Extract Instagram archive, run 36252120465 (free dry run) | Same token check: the secret is still not visible to Actions |
+| 2026-09-26 15:59 UTC | Fetch Instagram (public), run 36253795336 (one retry) | HTTP 429 on all six requests across both hosts. Instagram refuses unauthenticated requests from GitHub's runners, so this route is closed and Apify is the way in |
 
 ## Evidence register
 

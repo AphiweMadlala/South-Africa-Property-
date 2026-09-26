@@ -1,6 +1,6 @@
 # QA report
 
-Generated 2026-09-26T15:48:49.000Z by `scripts/qa/site-qa.mjs` against `http://127.0.0.1:8770/` (build: `.preview`, synthetic preview data).
+Generated 2026-09-26T16:02:01.895Z by `scripts/qa/site-qa.mjs` against `http://127.0.0.1:8770/` (build: `.preview`, synthetic preview data).
 
 **198 of 198 checks passed.**
 

@@ -88,6 +88,9 @@ test('a synthetic export builds into a complete site', { timeout: 180_000 }, asy
   const index = await readFile(path.join(docs, 'index.html'), 'utf8');
   assert.match(index, /Test Residence One/);
   assert.doesNotMatch(index, /preview-banner|noindex/, 'the real build is not marked as a preview');
+  const og = index.match(/<meta property="og:image" content="([^"]+)">/);
+  assert.ok(og && /\/media\/[^/]+-og\.jpg$/.test(og[1]), 'link previews use a JPEG');
+  assert.ok(await exists(path.join(docs, 'media', path.basename(og[1]))), 'the preview image is published');
   const residencePage = await readFile(path.join(docs, `residences/${slugOf(index)}/index.html`), 'utf8');
   assert.match(residencePage, /R&nbsp;38&nbsp;500&nbsp;000|R 38 500 000|R 38 500 000/);
   assert.match(residencePage, /For sale · as of 1 September 2026/);

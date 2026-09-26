@@ -11,7 +11,8 @@ const NAV = [
 export function layout({ site, root, page, title, description, image, main, bodyClass, scripts = true }) {
   const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.tagline}`;
   const canonical = site.url ? `${site.url}${page.path}` : null;
-  const ogImage = image && site.url ? `${site.url}${image}` : null;
+  // image: { url, width, height }, a JPEG link preview relative to the site root.
+  const ogImage = image && site.url ? `${site.url}${image.url}` : null;
   const year = new Date().getFullYear();
 
   return html`<!DOCTYPE html>
@@ -25,7 +26,7 @@ ${site.indexable ? '' : raw('<meta name="robots" content="noindex, nofollow">\n'
 <meta property="og:type" content="${page.type ?? 'website'}">
 <meta property="og:title" content="${title ?? site.name}">
 <meta property="og:description" content="${description ?? site.bio}">
-${canonical ? html`<meta property="og:url" content="${canonical}">\n` : ''}${ogImage ? html`<meta property="og:image" content="${ogImage}">\n<meta name="twitter:card" content="summary_large_image">\n` : ''}<meta name="theme-color" content="#ffffff">
+${canonical ? html`<meta property="og:url" content="${canonical}">\n` : ''}${ogImage ? html`<meta property="og:image" content="${ogImage}">\n<meta property="og:image:width" content="${image.width}">\n<meta property="og:image:height" content="${image.height}">\n<meta name="twitter:card" content="summary_large_image">\n` : ''}<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="${root}assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${root}assets/fonts/libre-caslon-display-400.woff2" as="font" type="font/woff2" crossorigin>
