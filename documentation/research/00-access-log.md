@@ -27,6 +27,16 @@ retrieved**. Nothing below has been filled in from memory or assumption.
 | Harness web search | search index | Works — returns page titles and URLs only (below) |
 | Reachable hosts | `registry.npmjs.org`, `pypi.org`, `fonts.googleapis.com`, `fonts.gstatic.com`, `api.github.com`, `raw.githubusercontent.com` | OK |
 
+## GitHub Actions route (after the policy block)
+
+Extraction was moved to GitHub's machines, which can reach Apify and Instagram.
+
+| Date | Run | Outcome |
+| --- | --- | --- |
+| 2026-09-26 | Extract Instagram archive, runs 36241907491 (two attempts) and 36243066794 | Stopped at the token check: `APIFY_TOKEN` is not an Actions secret. The owner had added it as a Codespaces secret, which Actions cannot read |
+| 2026-09-26 | Fetch Instagram (public), run 36243066976 | Instagram answered HTTP 429 (rate limited) to GitHub's runners |
+| 2026-09-26 15:29 UTC | Extract Instagram archive, run 36252120465 (free dry run) | Same token check: the secret is still not visible to Actions |
+
 ## Evidence register
 
 ### Verified
@@ -42,6 +52,9 @@ retrieved**. Nothing below has been filled in from memory or assumption.
 | --- | --- | --- |
 | Ownership | The project owner owns or is authorised to run @southafrica.property; the site is its official website | Owner's confirmation in the project session, 2026-09-26 |
 | Bio | "Showcasing the best high-end residential properties in and around South Africa." | Owner's brief (not yet checked against the live profile) |
+| Business model | A mix: editorial features, paid listing features, and listings the account represents | Owner's answer in the project session, 2026-09-26 |
+| Enquiries | By email or WhatsApp. The address and number have not been supplied, so the site offers an Instagram message until they are | Owner's answer, 2026-09-26 |
+| Visual register | Classic editorial, with Sotheby's International Realty as the quality benchmark (craft level, not palette or typefaces) | Owner's answers, 2026-09-26 |
 
 ### Unknown until extraction runs
 
