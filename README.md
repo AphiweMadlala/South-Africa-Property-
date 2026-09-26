@@ -1,0 +1,63 @@
+# South Africa Property — proposal website
+
+A proposal website for [@southafrica.property](https://www.instagram.com/southafrica.property/),
+to be built entirely from the account's own Instagram archive: its residences,
+places, captions, credits and photography. It is not the account's official
+website and will ship with `noindex, nofollow`.
+
+## Status
+
+| Phase | State |
+| --- | --- |
+| 1 · Research | **Blocked** — the environment's network policy denies Instagram, its CDNs, Apify and web readers ([access log](docs/research/00-access-log.md)) |
+| 2 · Extraction | Pipeline built and tested offline; not yet run |
+| 3 · Content model | Rules written ([content-model.md](docs/content-model.md)); data files wait for the archive |
+| 4–7 · Direction, type, DESIGN.md | Not started — they derive from the archive's imagery and captions |
+| 8–16 · Build, critique, QA | Not started |
+
+No listing, price, image, person or place has been entered by hand, and none
+will be. The site is generated from extracted data.
+
+## Unblocking
+
+In the cloud environment settings: allow `api.apify.com`, `www.instagram.com`,
+`i.instagram.com`, `*.cdninstagram.com` and `*.fbcdn.net` (or use full network
+access), and add an `APIFY_TOKEN` environment variable. Then start a new session
+and follow the [extraction runbook](docs/extraction-runbook.md).
+
+## Pipeline
+
+```bash
+npm ci
+scripts/extract/apify-extract.sh                 # dry run: auth, schemas, pricing
+CONFIRM_COST=1 scripts/extract/apify-extract.sh  # → data/raw/instagram/<stamp>/ (read-only)
+npm run extract:normalize                        # → data/normalized/posts.json
+npm run media:fetch                              # → media/source/ + media/manifest.json
+npm run media:hash                               # → media/hashes.json
+npm run extract:dedupe                           # → data/normalized/residences.json
+node scripts/research/archive-analysis.mjs       # → docs/research/02-archive-analysis.md
+npm test                                         # parser, gazetteer, normaliser, hashing, dedupe
+```
+
+## Layout
+
+```
+data/raw/instagram/<stamp>/   immutable Apify exports
+data/normalized/              posts, profile, residence clusters (generated)
+media/                        source images, provenance manifest, hashes (generated)
+scripts/lib/                  caption parser, gazetteer, perceptual hash
+scripts/extract/              Apify runner, normaliser, dedupe
+scripts/media/                media fetch and hashing
+scripts/research/             archive analysis
+tests/                        unit tests on synthetic fixtures only
+docs/                         research log, runbook, content model
+```
+
+## Principles
+
+- Research, then extraction, then design, then build.
+- Every fact keeps its evidence, source and confidence; missing stays `null`.
+- "For sale" appears only where current availability is reasonably verified.
+- Credits say only what the source says; no relationship is implied.
+- Source imagery is used as published, with attribution; nothing is generated,
+  retouched, de-watermarked or substituted.

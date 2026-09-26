@@ -1,0 +1,20 @@
+{
+  "name": "south-africa-property-proposal",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Proposal website for @southafrica.property, built from its own Instagram archive. Phase 2 extraction pipeline.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "extract:normalize": "node scripts/extract/normalize.mjs",
+    "media:fetch": "node scripts/media/fetch-media.mjs",
+    "media:hash": "node scripts/media/hash-media.mjs",
+    "extract:dedupe": "node scripts/extract/dedupe.mjs",
+    "test": "node --test \"tests/**/*.test.mjs\""
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
+  }
+}

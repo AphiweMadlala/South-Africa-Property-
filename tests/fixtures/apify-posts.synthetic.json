@@ -1,0 +1,60 @@
+[
+  {
+    "id": "1000000000000000001",
+    "type": "Sidecar",
+    "shortCode": "TESTAAA0001",
+    "caption": "Test Residence One\n📍 Camps Bay, Cape Town\nAsking price: R 38 500 000\n5 bedrooms | 5.5 bathrooms | double garage\nErf size: 1 100m² · 780m² under roof\nArchitecture: @example_architects\n📸 @example_photographer\nListed by @example_realty\nDM us to be featured #campsbay #architecture",
+    "hashtags": ["campsbay", "architecture"],
+    "mentions": ["example_architects", "example_photographer", "example_realty"],
+    "url": "https://www.instagram.com/p/TESTAAA0001/",
+    "commentsCount": 12,
+    "likesCount": -1,
+    "dimensionsHeight": 1350,
+    "dimensionsWidth": 1080,
+    "displayUrl": "https://example.com/media/aaa0001-0.jpg",
+    "images": ["https://example.com/media/aaa0001-0.jpg", "https://example.com/media/aaa0001-1.jpg"],
+    "childPosts": [
+      { "id": "c1", "type": "Image", "shortCode": "C1", "displayUrl": "https://example.com/media/aaa0001-0.jpg", "dimensionsHeight": 1350, "dimensionsWidth": 1080, "alt": "Synthetic alt text", "taggedUsers": [{ "username": "example_realty" }] },
+      { "id": "c2", "type": "Image", "shortCode": "C2", "displayUrl": "https://example.com/media/aaa0001-1.jpg", "dimensionsHeight": 1080, "dimensionsWidth": 1080, "alt": null, "taggedUsers": [] }
+    ],
+    "timestamp": "2026-09-01T08:00:00.000Z",
+    "locationName": "Camps Bay, Western Cape",
+    "locationId": "111",
+    "ownerUsername": "southafrica.property",
+    "ownerFullName": "South Africa Property",
+    "productType": "carousel_container",
+    "taggedUsers": [],
+    "isPinned": true
+  },
+  {
+    "id": "1000000000000000002",
+    "type": "Video",
+    "shortCode": "TESTAAA0002",
+    "caption": "Would you live here? 🌊 Test Residence Two. Designed by @example_studio. Link in bio.",
+    "hashtags": [],
+    "mentions": ["example_studio"],
+    "url": "https://www.instagram.com/p/TESTAAA0002/",
+    "commentsCount": 3,
+    "likesCount": 250,
+    "dimensionsHeight": 1920,
+    "dimensionsWidth": 1080,
+    "displayUrl": "https://example.com/media/aaa0002-cover.jpg",
+    "videoUrl": "https://example.com/media/aaa0002.mp4",
+    "timestamp": "2026-08-15T08:00:00.000Z",
+    "locationName": null,
+    "ownerUsername": "southafrica.property",
+    "productType": "clips",
+    "coauthorProducers": [{ "username": "example_studio" }]
+  },
+  {
+    "id": "1000000000000000003",
+    "type": "Image",
+    "shortCode": "TESTBBB0003",
+    "caption": "Not ours",
+    "url": "https://www.instagram.com/p/TESTBBB0003/",
+    "timestamp": "2026-08-10T08:00:00.000Z",
+    "displayUrl": "https://example.com/media/bbb0003.jpg",
+    "ownerUsername": "example_other_account"
+  },
+  { "error": "not_found", "url": "https://www.instagram.com/p/TESTERR/" }
+]
