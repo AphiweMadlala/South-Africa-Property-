@@ -41,7 +41,8 @@ npm run media:fetch                              # → media/source/ + media/man
 npm run media:hash                               # → media/hashes.json
 npm run extract:dedupe                           # → data/normalized/residences.json
 node scripts/research/archive-analysis.mjs       # → documentation/research/02-archive-analysis.md
-npm test                                         # parser, gazetteer, normaliser, hashing, dedupe
+npm run content:build                            # → data/properties.json, features, people, places
+npm test                                         # parser, gazetteer, normaliser, hashing, dedupe, content
 ```
 
 ## Layout
@@ -54,6 +55,7 @@ scripts/lib/                  caption parser, gazetteer, perceptual hash
 scripts/extract/              Apify runner, normaliser, dedupe
 scripts/media/                media fetch and hashing
 scripts/research/             archive analysis
+scripts/content/              content model builder (residences, people, places, features)
 tests/                        unit tests on synthetic fixtures only
 docs/                         the published website — GitHub Pages serves this folder from main
 documentation/                research log, runbook, content model, deployment
