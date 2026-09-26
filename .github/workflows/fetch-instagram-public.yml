@@ -1,0 +1,59 @@
+# Fetch the account's public profile and latest posts straight from Instagram
+# (no login, no Apify token), download their photos in the same run, and commit
+# everything to the branch. Covers the latest posts only; the Apify workflow
+# fetches the full archive once APIFY_TOKEN is an Actions secret.
+#
+# Triggers
+#   - "Run workflow" on the Actions tab (once this file is on main)
+#   - a push to a claude/* branch that changes .github/public-fetch-request.json
+
+name: Fetch Instagram (public)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['claude/**']
+    paths: ['.github/public-fetch-request.json']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-instagram-public-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch profile and latest posts
+        run: node scripts/extract/instagram-public.mjs
+
+      # Instagram's image links are signed and expire within days.
+      - name: Normalise, fetch media, hash, dedupe, analyse
+        run: |
+          npm run extract:normalize
+          npm run media:fetch
+          npm run media:hash
+          npm run extract:dedupe
+          node scripts/research/archive-analysis.mjs
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data media documentation/research
+          if git diff --cached --quiet; then echo "Nothing new to commit."; exit 0; fi
+          git commit -m "Add public Instagram fetch ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
