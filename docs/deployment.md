@@ -1,39 +1,48 @@
 # Deployment
 
-**Decision (2026-09-26, project owner):** publish the site as a **private
-claude.ai artifact**, a private link shared selectively. This suits a
-proposal that should not be indexed. Deployment happens after extraction,
-design, build and QA; nothing is deployed before the site is built from the
-real archive.
+**Decision (2026-09-26, project owner):** deploy to **GitHub Pages** from this
+repository. The site will be served at
+<https://aphiwemadlala.github.io/South-Africa-Property-/>.
 
-## Constraints this places on the build
+Nothing is deployed before the site has been built from the real archive and
+has passed QA. Until then there is nothing for Pages to serve.
 
-- **Static output.** One entry page plus supporting files (further pages, CSS,
-  JS, fonts, images), referenced by relative paths with no leading slash. Every
-  additional HTML page must be a complete document with its own doctype,
-  charset and viewport meta, and base styles. A single page with client-side
-  routing is the alternative if the page count gets awkward.
-- **Limits:** 16 MB per page or text file, 15 MB per binary file. Each publish
-  holds ≤ 255 files and ≤ 64 MB; each version holds ≤ 511 files and ≤ 256 MB.
-  Larger sets go up across several publishes to the same URL.
-- **External resources:** scripts only from `cdnjs.cloudflare.com` or
-  `cdn.jsdelivr.net/npm`, stylesheets only from Google Fonts. Everything else
-  ships as files, and self-hosted font files are fine.
-- **Page contract:** load the `artifact-design` skill before writing the page.
-  It sets the title, colour tokens (including dark mode) and layout rules.
-- **No server.** Filters and index state live in the URL (query or hash) and
-  must survive refresh, back/forward and shared links on the client alone.
-- **Proposal mode:** still ship `<meta name="robots" content="noindex, nofollow">`
-  and never present the page as the account's official website.
+## One-time setup (repository owner)
 
-## Image budget
+Pages is not enabled yet. In the repository go to **Settings → Pages → Build and
+deployment → Source** and choose **GitHub Actions**. The workflow can't
+switch this on itself with the default token. The repository is public, so this
+works on the free plan.
 
-The 511-file cap per version is the binding constraint, not bytes. Budget:
+## How it will deploy
 
-- one modern format (AVIF; add WebP only if a target browser needs it);
-- at most two widths per image;
-- a curated selection of frames per residence, not every carousel slide.
+- A workflow in `.github/workflows/` builds the static site and publishes it
+  with `actions/upload-pages-artifact` and `actions/deploy-pages` on pushes to
+  `main`. It is added together with the site, not before.
+- **Base path.** This is a project site under `/South-Africa-Property-/`, so
+  every link and asset URL is relative or carries that prefix. The build takes
+  the base path from configuration, not hard-coded strings.
+- **No server.** Filters and index state live in the URL query and must survive
+  refresh, back/forward and shared links on the client alone. A `404.html`
+  handles unknown paths.
+- **Media.** Commit the originals of residences the site uses to
+  `media/source/`. Generate the web derivatives (AVIF, plus WebP where needed,
+  at responsive widths) in the workflow rather than committing them, which
+  keeps the repository well under GitHub's recommended 1 GB and the published
+  site under Pages' 1 GB limit.
 
-(images × formats × widths) + pages + CSS/JS/fonts must stay under ~500. If the
-archive needs more, check the artifact asset store (the `assets` capability;
-limits are in the `artifact-capabilities` skill) at build time.
+## Public by default: proposal-mode safeguards
+
+GitHub Pages sites are public, so this proposal will be reachable by anyone
+with the link. It reproduces photographs owned by photographers and agencies.
+To limit exposure:
+
+- Every page ships `<meta name="robots" content="noindex, nofollow">`. A
+  project site can't serve its own `robots.txt`, because crawlers only read it
+  from `aphiwemadlala.github.io/robots.txt`, and Pages can't send an
+  `X-Robots-Tag` header.
+- Every page states that it is an independent proposal, not the official
+  website of @southafrica.property.
+- Every image keeps its credit and a link to its source post.
+- If a private preview is needed later, a private claude.ai artifact remains
+  an option. It has tighter limits: 511 files and 256 MB per version.
