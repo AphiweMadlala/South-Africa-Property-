@@ -28,7 +28,7 @@ curl -s "https://r.jina.ai/https://www.instagram.com/southafrica.property/"
 ```
 
 Then search the web for the account's bio link, any website, and other
-platforms it names. Record findings in `docs/research/01-reconnaissance.md`,
+platforms it names. Record findings in `documentation/research/01-reconnaissance.md`,
 separating verified facts from inference.
 
 ## 2. Apify extraction
@@ -68,7 +68,7 @@ npm run extract:normalize     # → data/normalized/posts.json, profile.json
 npm run media:fetch           # → media/source/<post>/<nn>.jpg + media/manifest.json
 npm run media:hash            # → media/hashes.json
 npm run extract:dedupe        # → data/normalized/residences.json
-node scripts/research/archive-analysis.mjs   # → docs/research/02-archive-analysis.md
+node scripts/research/archive-analysis.mjs   # → documentation/research/02-archive-analysis.md
 ```
 
 `media:fetch` is idempotent; re-run it to retry failures listed in
@@ -77,7 +77,7 @@ re-extract rather than guessing.
 
 ## 4. Review before modelling content
 
-- Read `docs/research/02-archive-analysis.md` — it answers most Phase 1
+- Read `documentation/research/02-archive-analysis.md` — it answers most Phase 1
   questions (content mix, cadence, credits, CTAs, geography, vocabulary) with
   measured numbers.
 - Open every cluster in `residences.json` with `needsReview: true` and every

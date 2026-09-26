@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Independent website proposal for @southafrica.property, in preparation. Not the official website.">
+  <title>South Africa Property · proposal in preparation</title>
+  <style>
+    /* Holding page only. The real site replaces this whole folder. */
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f0ea;
+      --ink: #1c1b19;
+      --muted: #5f5a52;
+      --rule: #d6d0c5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #151412;
+        --ink: #ebe6de;
+        --muted: #a39d93;
+        --rule: #34312c;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); color: var(--ink); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font: 400 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+    }
+    main, footer { max-width: 38rem; padding: 0 1rem; margin-left: clamp(0rem, 8vw, 9rem); }
+    main { padding-top: clamp(4rem, 18vh, 10rem); }
+    .label {
+      margin: 0 0 1.5rem;
+      text-wrap: balance;
+      font: 500 0.75rem/1.4 ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h1 {
+      margin: 0 0 1.25rem;
+      font-weight: 400;
+      font-size: clamp(2.25rem, 7vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1rem; max-width: 34em; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+    footer {
+      padding-bottom: 2rem;
+      margin-top: 4rem;
+      font: 400 0.8125rem/1.5 ui-sans-serif, system-ui, sans-serif;
+      color: var(--muted);
+    }
+    footer p { margin: 0; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">Independent proposal · not the official website</p>
+    <h1>South Africa Property</h1>
+    <p>A website proposal for <a href="https://www.instagram.com/southafrica.property/" rel="noopener">@southafrica.property</a>, to be built from the account’s own Instagram archive.</p>
+    <p>In preparation. This page will be replaced by the proposal once it is built.</p>
+  </main>
+  <footer>
+    <p>Not affiliated with or endorsed by @southafrica.property.</p>
+  </footer>
+</body>
+</html>

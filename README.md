@@ -9,12 +9,12 @@ website and will ship with `noindex, nofollow`.
 
 | Phase | State |
 | --- | --- |
-| 1 · Research | **Blocked** — the environment's network policy denies Instagram, its CDNs, Apify and web readers ([access log](docs/research/00-access-log.md)) |
+| 1 · Research | **Blocked** — the environment's network policy denies Instagram, its CDNs, Apify and web readers ([access log](documentation/research/00-access-log.md)) |
 | 2 · Extraction | Pipeline built and tested offline; not yet run |
-| 3 · Content model | Rules written ([content-model.md](docs/content-model.md)); data files wait for the archive |
+| 3 · Content model | Rules written ([content-model.md](documentation/content-model.md)); data files wait for the archive |
 | 4–7 · Direction, type, DESIGN.md | Not started — they derive from the archive's imagery and captions |
 | 8–16 · Build, critique, QA | Not started |
-| Deployment | GitHub Pages, after build and QA; Pages must first be enabled in Settings → Pages ([deployment.md](docs/deployment.md)) |
+| Deployment | GitHub Pages from `main` → `/docs`; a holding page stands in until the real site is built ([deployment.md](documentation/deployment.md)) |
 
 No listing, price, image, person or place has been entered by hand, and none
 will be. The site is generated from extracted data.
@@ -24,7 +24,7 @@ will be. The site is generated from extracted data.
 In the cloud environment settings: allow `api.apify.com`, `www.instagram.com`,
 `i.instagram.com`, `*.cdninstagram.com` and `*.fbcdn.net` (or use full network
 access), and add an `APIFY_TOKEN` environment variable. Then start a new session
-and follow the [extraction runbook](docs/extraction-runbook.md).
+and follow the [extraction runbook](documentation/extraction-runbook.md).
 
 ## Pipeline
 
@@ -36,7 +36,7 @@ npm run extract:normalize                        # → data/normalized/posts.jso
 npm run media:fetch                              # → media/source/ + media/manifest.json
 npm run media:hash                               # → media/hashes.json
 npm run extract:dedupe                           # → data/normalized/residences.json
-node scripts/research/archive-analysis.mjs       # → docs/research/02-archive-analysis.md
+node scripts/research/archive-analysis.mjs       # → documentation/research/02-archive-analysis.md
 npm test                                         # parser, gazetteer, normaliser, hashing, dedupe
 ```
 
@@ -51,7 +51,8 @@ scripts/extract/              Apify runner, normaliser, dedupe
 scripts/media/                media fetch and hashing
 scripts/research/             archive analysis
 tests/                        unit tests on synthetic fixtures only
-docs/                         research log, runbook, content model
+docs/                         the published website — GitHub Pages serves this folder from main
+documentation/                research log, runbook, content model, deployment
 ```
 
 ## Principles
