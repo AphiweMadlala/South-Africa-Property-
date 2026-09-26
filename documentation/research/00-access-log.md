@@ -36,11 +36,12 @@ retrieved**. Nothing below has been filled in from memory or assumption.
 | Account exists | `instagram.com/southafrica.property/` | Web search index, 6 independent queries | High |
 | Display name | **South Africa Property** | Indexed page title `South Africa Property (@southafrica.property)` | Medium — index titles can lag the live profile |
 
-### Supplied by the brief, not independently verified
+### Stated by the account owner
 
-| Fact | Value |
-| --- | --- |
-| Bio | "Showcasing the best high-end residential properties in and around South Africa." |
+| Fact | Value | Source |
+| --- | --- | --- |
+| Ownership | The project owner owns or is authorised to run @southafrica.property; the site is its official website | Owner's confirmation in the project session, 2026-09-26 |
+| Bio | "Showcasing the best high-end residential properties in and around South Africa." | Owner's brief (not yet checked against the live profile) |
 
 ### Unknown until extraction runs
 

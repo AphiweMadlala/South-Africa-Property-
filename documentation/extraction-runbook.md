@@ -20,6 +20,23 @@ host below (see [`research/00-access-log.md`](research/00-access-log.md)).
 
 Environment variables and network changes apply to a **new** session.
 
+## 0b. Or: run the extraction on GitHub
+
+If the build environment can't reach Apify, the workflow
+`.github/workflows/extract-instagram.yml` runs steps 2–3 on GitHub's machines
+and commits the results (raw export, normalised data, media, analysis) to the
+branch:
+
+1. Add the repository secret `APIFY_TOKEN` (Settings → Secrets and variables →
+   Actions). The token is under Apify Console → Settings → API & Integrations.
+2. Push `.github/extract-request.json` on a `claude/*` branch with
+   `{ "limit": 200, "confirmCost": false }`. This runs a dry run only. Read the
+   pricing in the run log and estimate the cost.
+3. After the cost is confirmed, push the file again with `"confirmCost": true`.
+   Once the workflow file is on `main`, "Run workflow" on the Actions tab does
+   the same.
+4. `git pull` the branch and continue with step 4 below.
+
 ## 1. Reconnaissance (Agent Reach)
 
 ```bash

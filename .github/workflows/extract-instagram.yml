@@ -1,0 +1,113 @@
+# Pull the @southafrica.property archive with Apify and commit it to the branch.
+#
+# Runs on GitHub's machines, which can reach Apify and Instagram's image CDN.
+# Needs the repository secret APIFY_TOKEN (Settings → Secrets and variables →
+# Actions). Every run starts with a dry run that prints the actors' input keys
+# and pricing; the paid extraction only runs when the request confirms the cost.
+#
+# Triggers
+#   - "Run workflow" on the Actions tab (once this file is on main)
+#   - a push to a claude/* branch that changes .github/extract-request.json:
+#       { "limit": 200, "confirmCost": false }
+
+name: Extract Instagram archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Maximum posts and reels to fetch
+        default: '200'
+      confirm_cost:
+        description: Run the paid extraction (otherwise dry run only)
+        type: boolean
+        default: false
+  push:
+    branches: ['claude/**']
+    paths: ['.github/extract-request.json']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extract-instagram-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      APIFY_CLI_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Read request
+        id: req
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT_LIMIT: ${{ inputs.limit }}
+          INPUT_CONFIRM: ${{ inputs.confirm_cost }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            limit="$INPUT_LIMIT"; confirm="$INPUT_CONFIRM"
+          else
+            limit=$(jq -r '.limit // 200' .github/extract-request.json)
+            confirm=$(jq -r '.confirmCost // false' .github/extract-request.json)
+          fi
+          if ! [[ "$limit" =~ ^[0-9]+$ ]] || [ "$limit" -lt 1 ] || [ "$limit" -gt 500 ]; then
+            echo "::error::limit must be a number from 1 to 500"; exit 1
+          fi
+          echo "limit=$limit" >> "$GITHUB_OUTPUT"
+          echo "confirm=$confirm" >> "$GITHUB_OUTPUT"
+          echo "Request: limit=$limit confirmCost=$confirm"
+
+      - name: Check token
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "::error::Repository secret APIFY_TOKEN is not set (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm install -g apify-cli@1.10.0
+
+      - name: Dry run — auth, input schemas, pricing
+        env:
+          LIMIT: ${{ steps.req.outputs.limit }}
+        run: scripts/extract/apify-extract.sh
+
+      - name: Extract (paid)
+        if: steps.req.outputs.confirm == 'true'
+        env:
+          LIMIT: ${{ steps.req.outputs.limit }}
+          CONFIRM_COST: '1'
+        run: scripts/extract/apify-extract.sh
+
+      # Instagram's image links are signed and expire within days, so the media
+      # is downloaded in the same run as the extraction.
+      - name: Normalise, fetch media, hash, dedupe, analyse
+        if: steps.req.outputs.confirm == 'true'
+        run: |
+          npm run extract:normalize
+          npm run media:fetch
+          npm run media:hash
+          npm run extract:dedupe
+          node scripts/research/archive-analysis.mjs
+
+      - name: Commit results
+        if: steps.req.outputs.confirm == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data media documentation/research
+          if git diff --cached --quiet; then echo "Nothing new to commit."; exit 0; fi
+          git commit -m "Add Instagram archive extraction ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
